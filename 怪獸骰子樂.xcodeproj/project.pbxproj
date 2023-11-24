@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		183B1B3B2AF6BCD900D39829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183B1B3A2AF6BCD900D39829 /* Main.storyboard */; };
+		183B1B3D2AF6CA5E00D39829 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1B3C2AF6CA5E00D39829 /* Model.swift */; };
+		185D39E22AF6B86E006F0C0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D39E12AF6B86E006F0C0D /* ViewController.swift */; };
+		185D39E52AF6B897006F0C0D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D39E32AF6B897006F0C0D /* TableViewCell.swift */; };
+		185D39E62AF6B897006F0C0D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185D39E42AF6B897006F0C0D /* TableViewCell.xib */; };
+		4EB2973C2B06489A0010F1EA /* EnterGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2973B2B06489A0010F1EA /* EnterGameViewController.swift */; };
+		4EB2973E2B064C250010F1EA /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2973D2B064C250010F1EA /* GameMenuViewController.swift */; };
+		4EB297402B064CA90010F1EA /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2973F2B064CA90010F1EA /* SingleViewController.swift */; };
+		4EB297422B064D330010F1EA /* DoubleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297412B064D330010F1EA /* DoubleViewController.swift */; };
+		4EB297442B064D930010F1EA /* TheEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297432B064D930010F1EA /* TheEndViewController.swift */; };
+		AAB392F22AFB281C006B58CD /* BounsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */; };
+		AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */; };
+		AAD58BCE2AD8EFEE00C66E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */; };
+		AAD58BD02AD8EFEE00C66E22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD58BCF2AD8EFEE00C66E22 /* SceneDelegate.swift */; };
+		AAD58BD72AD8EFEF00C66E22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD58BD62AD8EFEF00C66E22 /* Assets.xcassets */; };
+		AAD58BDA2AD8EFEF00C66E22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD58BD82AD8EFEF00C66E22 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAD58BE12AD8EFEF00C66E22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAD58BC22AD8EFEE00C66E22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAD58BC92AD8EFEE00C66E22;
+			remoteInfo = diceTest;
+		};
+		AAD58BEB2AD8EFEF00C66E22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAD58BC22AD8EFEE00C66E22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAD58BC92AD8EFEE00C66E22;
+			remoteInfo = diceTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		183B1B3A2AF6BCD900D39829 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		183B1B3C2AF6CA5E00D39829 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		185D39E12AF6B86E006F0C0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		185D39E32AF6B897006F0C0D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		185D39E42AF6B897006F0C0D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		4EB2973B2B06489A0010F1EA /* EnterGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGameViewController.swift; sourceTree = "<group>"; };
+		4EB2973D2B064C250010F1EA /* GameMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
+		4EB2973F2B064CA90010F1EA /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+		4EB297412B064D330010F1EA /* DoubleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleViewController.swift; sourceTree = "<group>"; };
+		4EB297432B064D930010F1EA /* TheEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheEndViewController.swift; sourceTree = "<group>"; };
+		AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounsTableViewCell.swift; sourceTree = "<group>"; };
+		AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BounsTableViewCell.xib; sourceTree = "<group>"; };
+		AAD58BCA2AD8EFEE00C66E22 /* 怪獸骰子樂.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "怪獸骰子樂.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAD58BCF2AD8EFEE00C66E22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AAD58BD62AD8EFEF00C66E22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAD58BD92AD8EFEF00C66E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAD58BDB2AD8EFEF00C66E22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD58BE02AD8EFEF00C66E22 /* 怪獸骰子樂Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "怪獸骰子樂Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD58BEA2AD8EFEF00C66E22 /* 怪獸骰子樂UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "怪獸骰子樂UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAD58BC72AD8EFEE00C66E22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BDD2AD8EFEF00C66E22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BE72AD8EFEF00C66E22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAD58BC12AD8EFEE00C66E22 = {
+			isa = PBXGroup;
+			children = (
+				AAD58BCC2AD8EFEE00C66E22 /* 怪獸骰子樂 */,
+				AAD58BCB2AD8EFEE00C66E22 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAD58BCB2AD8EFEE00C66E22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAD58BCA2AD8EFEE00C66E22 /* 怪獸骰子樂.app */,
+				AAD58BE02AD8EFEF00C66E22 /* 怪獸骰子樂Tests.xctest */,
+				AAD58BEA2AD8EFEF00C66E22 /* 怪獸骰子樂UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAD58BCC2AD8EFEE00C66E22 /* 怪獸骰子樂 */ = {
+			isa = PBXGroup;
+			children = (
+				AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */,
+				AAD58BCF2AD8EFEE00C66E22 /* SceneDelegate.swift */,
+				185D39E12AF6B86E006F0C0D /* ViewController.swift */,
+				183B1B3A2AF6BCD900D39829 /* Main.storyboard */,
+				185D39E32AF6B897006F0C0D /* TableViewCell.swift */,
+				185D39E42AF6B897006F0C0D /* TableViewCell.xib */,
+				AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */,
+				AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */,
+				183B1B3C2AF6CA5E00D39829 /* Model.swift */,
+				4EB2973B2B06489A0010F1EA /* EnterGameViewController.swift */,
+				4EB2973D2B064C250010F1EA /* GameMenuViewController.swift */,
+				4EB2973F2B064CA90010F1EA /* SingleViewController.swift */,
+				4EB297412B064D330010F1EA /* DoubleViewController.swift */,
+				4EB297432B064D930010F1EA /* TheEndViewController.swift */,
+				AAD58BD82AD8EFEF00C66E22 /* LaunchScreen.storyboard */,
+				AAD58BD62AD8EFEF00C66E22 /* Assets.xcassets */,
+				AAD58BDB2AD8EFEF00C66E22 /* Info.plist */,
+			);
+			path = "怪獸骰子樂";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAD58BC92AD8EFEE00C66E22 /* 怪獸骰子樂 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD58BF42AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂" */;
+			buildPhases = (
+				AAD58BC62AD8EFEE00C66E22 /* Sources */,
+				AAD58BC72AD8EFEE00C66E22 /* Frameworks */,
+				AAD58BC82AD8EFEE00C66E22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "怪獸骰子樂";
+			productName = diceTest;
+			productReference = AAD58BCA2AD8EFEE00C66E22 /* 怪獸骰子樂.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAD58BDF2AD8EFEF00C66E22 /* 怪獸骰子樂Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD58BF72AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂Tests" */;
+			buildPhases = (
+				AAD58BDC2AD8EFEF00C66E22 /* Sources */,
+				AAD58BDD2AD8EFEF00C66E22 /* Frameworks */,
+				AAD58BDE2AD8EFEF00C66E22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAD58BE22AD8EFEF00C66E22 /* PBXTargetDependency */,
+			);
+			name = "怪獸骰子樂Tests";
+			productName = diceTestTests;
+			productReference = AAD58BE02AD8EFEF00C66E22 /* 怪獸骰子樂Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AAD58BE92AD8EFEF00C66E22 /* 怪獸骰子樂UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD58BFA2AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂UITests" */;
+			buildPhases = (
+				AAD58BE62AD8EFEF00C66E22 /* Sources */,
+				AAD58BE72AD8EFEF00C66E22 /* Frameworks */,
+				AAD58BE82AD8EFEF00C66E22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAD58BEC2AD8EFEF00C66E22 /* PBXTargetDependency */,
+			);
+			name = "怪獸骰子樂UITests";
+			productName = diceTestUITests;
+			productReference = AAD58BEA2AD8EFEF00C66E22 /* 怪獸骰子樂UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAD58BC22AD8EFEE00C66E22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AAD58BC92AD8EFEE00C66E22 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AAD58BDF2AD8EFEF00C66E22 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = AAD58BC92AD8EFEE00C66E22;
+					};
+					AAD58BE92AD8EFEF00C66E22 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = AAD58BC92AD8EFEE00C66E22;
+					};
+				};
+			};
+			buildConfigurationList = AAD58BC52AD8EFEE00C66E22 /* Build configuration list for PBXProject "怪獸骰子樂" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAD58BC12AD8EFEE00C66E22;
+			productRefGroup = AAD58BCB2AD8EFEE00C66E22 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAD58BC92AD8EFEE00C66E22 /* 怪獸骰子樂 */,
+				AAD58BDF2AD8EFEF00C66E22 /* 怪獸骰子樂Tests */,
+				AAD58BE92AD8EFEF00C66E22 /* 怪獸骰子樂UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAD58BC82AD8EFEE00C66E22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD58BDA2AD8EFEF00C66E22 /* LaunchScreen.storyboard in Resources */,
+				AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */,
+				AAD58BD72AD8EFEF00C66E22 /* Assets.xcassets in Resources */,
+				185D39E62AF6B897006F0C0D /* TableViewCell.xib in Resources */,
+				183B1B3B2AF6BCD900D39829 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BDE2AD8EFEF00C66E22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BE82AD8EFEF00C66E22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAD58BC62AD8EFEE00C66E22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB2973C2B06489A0010F1EA /* EnterGameViewController.swift in Sources */,
+				185D39E52AF6B897006F0C0D /* TableViewCell.swift in Sources */,
+				4EB297442B064D930010F1EA /* TheEndViewController.swift in Sources */,
+				AAD58BCE2AD8EFEE00C66E22 /* AppDelegate.swift in Sources */,
+				4EB297402B064CA90010F1EA /* SingleViewController.swift in Sources */,
+				AAB392F22AFB281C006B58CD /* BounsTableViewCell.swift in Sources */,
+				4EB297422B064D330010F1EA /* DoubleViewController.swift in Sources */,
+				183B1B3D2AF6CA5E00D39829 /* Model.swift in Sources */,
+				4EB2973E2B064C250010F1EA /* GameMenuViewController.swift in Sources */,
+				AAD58BD02AD8EFEE00C66E22 /* SceneDelegate.swift in Sources */,
+				185D39E22AF6B86E006F0C0D /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BDC2AD8EFEF00C66E22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD58BE62AD8EFEF00C66E22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAD58BE22AD8EFEF00C66E22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAD58BC92AD8EFEE00C66E22 /* 怪獸骰子樂 */;
+			targetProxy = AAD58BE12AD8EFEF00C66E22 /* PBXContainerItemProxy */;
+		};
+		AAD58BEC2AD8EFEF00C66E22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAD58BC92AD8EFEE00C66E22 /* 怪獸骰子樂 */;
+			targetProxy = AAD58BEB2AD8EFEF00C66E22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAD58BD82AD8EFEF00C66E22 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAD58BD92AD8EFEF00C66E22 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAD58BF22AD8EFEF00C66E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAD58BF32AD8EFEF00C66E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAD58BF52AD8EFEF00C66E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "怪獸骰子樂/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios112b06.怪獸骰子樂";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAD58BF62AD8EFEF00C66E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "怪獸骰子樂/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios112b06.怪獸骰子樂";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AAD58BF82AD8EFEF00C66E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios112b06.diceTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/怪獸骰子樂.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/怪獸骰子樂";
+			};
+			name = Debug;
+		};
+		AAD58BF92AD8EFEF00C66E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios112b06.diceTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/怪獸骰子樂.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/怪獸骰子樂";
+			};
+			name = Release;
+		};
+		AAD58BFB2AD8EFEF00C66E22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios112b06.diceTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = diceTest;
+			};
+			name = Debug;
+		};
+		AAD58BFC2AD8EFEF00C66E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios112b06.diceTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = diceTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAD58BC52AD8EFEE00C66E22 /* Build configuration list for PBXProject "怪獸骰子樂" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD58BF22AD8EFEF00C66E22 /* Debug */,
+				AAD58BF32AD8EFEF00C66E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD58BF42AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD58BF52AD8EFEF00C66E22 /* Debug */,
+				AAD58BF62AD8EFEF00C66E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD58BF72AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD58BF82AD8EFEF00C66E22 /* Debug */,
+				AAD58BF92AD8EFEF00C66E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD58BFA2AD8EFEF00C66E22 /* Build configuration list for PBXNativeTarget "怪獸骰子樂UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD58BFB2AD8EFEF00C66E22 /* Debug */,
+				AAD58BFC2AD8EFEF00C66E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAD58BC22AD8EFEE00C66E22 /* Project object */;
+}
