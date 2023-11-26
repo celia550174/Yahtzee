@@ -229,7 +229,7 @@ class TableViewCell: UITableViewCell {
         self.playerTwoScroeButton.isSelected = itemInfo.btnSelected2 != .none
     }
     
-    // 判斷 playerOneScroeLabel 要用哪個資料，如果 playerScore 不是 0 的話就顯示 playerScore 的分數
+    // 判斷 playerScroeLabel 要用哪個資料，如果 playerScore 不是 0 的話就顯示 playerScore 的分數
     func getPlayerScoreValue(row: Int, _ playerData: PlayerScoreSheet, _ defaultString: String) -> String{
         
         return playerData.playerScore[row] != 0 ? String(playerData.playerScore[row]) : defaultString

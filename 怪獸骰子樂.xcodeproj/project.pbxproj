@@ -17,7 +17,7 @@
 		4EB297402B064CA90010F1EA /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2973F2B064CA90010F1EA /* SingleViewController.swift */; };
 		4EB297422B064D330010F1EA /* DoubleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297412B064D330010F1EA /* DoubleViewController.swift */; };
 		4EB297442B064D930010F1EA /* TheEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297432B064D930010F1EA /* TheEndViewController.swift */; };
-		4EFC3D242B12FAE40053FE1D /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC3D232B12FAE40053FE1D /* music.mp3 */; };
+		4EFC3D262B135F530053FE1D /* music in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC3D252B135F530053FE1D /* music */; };
 		AAB392F22AFB281C006B58CD /* BounsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */; };
 		AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */; };
 		AAD58BCE2AD8EFEE00C66E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */; };
@@ -54,7 +54,7 @@
 		4EB2973F2B064CA90010F1EA /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
 		4EB297412B064D330010F1EA /* DoubleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleViewController.swift; sourceTree = "<group>"; };
 		4EB297432B064D930010F1EA /* TheEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheEndViewController.swift; sourceTree = "<group>"; };
-		4EFC3D232B12FAE40053FE1D /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = SOURCE_ROOT; };
+		4EFC3D252B135F530053FE1D /* music */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = music; sourceTree = SOURCE_ROOT; };
 		AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounsTableViewCell.swift; sourceTree = "<group>"; };
 		AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BounsTableViewCell.xib; sourceTree = "<group>"; };
 		AAD58BCA2AD8EFEE00C66E22 /* 怪獸骰子樂.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "怪獸骰子樂.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +113,7 @@
 		AAD58BCC2AD8EFEE00C66E22 /* 怪獸骰子樂 */ = {
 			isa = PBXGroup;
 			children = (
-				4EFC3D232B12FAE40053FE1D /* music.mp3 */,
+				4EFC3D252B135F530053FE1D /* music */,
 				AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */,
 				AAD58BCF2AD8EFEE00C66E22 /* SceneDelegate.swift */,
 				185D39E12AF6B86E006F0C0D /* ViewController.swift */,
@@ -241,9 +241,9 @@
 			files = (
 				AAD58BDA2AD8EFEF00C66E22 /* LaunchScreen.storyboard in Resources */,
 				AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */,
-				4EFC3D242B12FAE40053FE1D /* music.mp3 in Resources */,
 				AAD58BD72AD8EFEF00C66E22 /* Assets.xcassets in Resources */,
 				185D39E62AF6B897006F0C0D /* TableViewCell.xib in Resources */,
+				4EFC3D262B135F530053FE1D /* music in Resources */,
 				183B1B3B2AF6BCD900D39829 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +451,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2MBGJ98JH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "怪獸骰子樂/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -482,7 +482,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2MBGJ98JH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "怪獸骰子樂/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -33,9 +33,6 @@ struct Game
 
 struct PlayerScoreSheet
 {
-    //儲存tableview的indexPath.row
-//    var leftPlayerScoreBtnSelectIndex:Int?
-//    var rightPlayerScoreBtnSelectIndex:Int?
     
     //儲存表格按鈕是否被選擇的Bool
     var isPlayerScoreBtnSelected:[BtnType] = [.none,.none,.none,.none,.none,.none,.none,.none,.none,.none,.none,.none,.none]
@@ -63,9 +60,6 @@ struct PlayerScoreSheet
 
     init(_ diceRoll: [DiceValue])
     {
-        // 初始化存儲屬性
-//        self.leftPlayerScoreBtnSelectIndex = nil
-//        self.rightPlayerScoreBtnSelectIndex = nil
         
         // 然後調用計算得分的方法
         calculateScore(diceRoll)

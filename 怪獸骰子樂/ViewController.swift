@@ -197,7 +197,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         rightTwoArrowImg.isHidden = true
         
         //背景音樂相關設定
-        let urlFile = Bundle.main.url(forResource: "music", withExtension: "mp3")!
+        let urlFile = Bundle.main.url(forResource: "music/cheerful_whistling", withExtension: "mp3")!
         do
         {
             audioPlayer = try AVAudioPlayer(contentsOf: urlFile)
@@ -211,14 +211,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         self.audioPlayer.delegate = self
         //準備播放音樂
         self.audioPlayer.prepareToPlay()
+        // 設定循環播放
+        self.audioPlayer.numberOfLoops = -1
         
-    }
-    
-    //音樂播放完成時
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
-    {
-        //繼續播放（循環播放）
-        player.play()
     }
     
     // 當遊戲結束時換頁
@@ -494,6 +489,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         alert.view.alpha = 0.5
         alert.view.layer.cornerRadius = 15
         self.present(alert, animated: true)
+        //延遲一秒後，關閉警告框
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             alert.dismiss(animated: true)
         }
