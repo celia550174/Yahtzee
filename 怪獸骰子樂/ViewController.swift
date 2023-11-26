@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation     //匯入不含影音UI介面的影音框架
 
 //通知名稱常數
 extension Notification.Name
@@ -7,7 +8,7 @@ extension Notification.Name
 }
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     @IBOutlet weak var leftTableView: UITableView!
     @IBOutlet weak var rightTableView: UITableView!
@@ -74,16 +75,22 @@ class ViewController: UIViewController{
     //音量鍵
     @IBAction func volumeBtnPressed(_ sender: Any) {
         self.volumeBtn.isSelected = !self.volumeBtn.isSelected
+        if audioPlayer != nil && !audioPlayer.isPlaying
+        {
+            //開始播放
+            audioPlayer.play()
+            
+        }
+        else
+        {
+            //暫停播放
+            audioPlayer.pause()
+        }
     }
     
     @IBAction func rollButtonPressed(_ sender: UIButton)
     {
-        // 如果是新回合，執行擲骰子的功能
-        //        if isNewRound
-        //        {
         stratDiceRoll()
-        //            isNewRound = false // 將 isNewRound 設定為 false，表示不再是新回合
-        //        }
         //先檢查 rollCount 變數，確保玩家還有剩餘的擲骰子次數。
         if game.rollCount > 0
         {
@@ -142,18 +149,14 @@ class ViewController: UIViewController{
         game.rollCount = 3
         let buttonText = "             \(game.rollCount)/3"
         rollButton.setTitle(buttonText, for: .normal)
-        
-        
-        // 設定 isNewRound 為 true，表示新回合
 
-        leftScoreLabel.text = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
-
-        print("[playerOne]isPlayerScoreBtnSelected:\(playerOneData.isPlayerScoreBtnSelected),playerScore:\(playerOneData.playerScore)")
-        print("[playerTwo]isPlayerScoreBtnSelected:\(playerTwoData.isPlayerScoreBtnSelected),playerScore:\(playerTwoData.playerScore)")
         
         //分數更新
-        //        leftScoreLabel.text = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
+        leftScoreLabel.text = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
         rightScoreLabel.text = String(playerTwoData.playerScore.reduce(0) { $0 + $1 })
+        
+        //呼叫換頁方法
+        checkForPageTransition()
     }
     
     
@@ -172,12 +175,14 @@ class ViewController: UIViewController{
     //記錄骰子點數的陣列
     var diceScore = [0, 0, 0, 0, 0]
     
-    //    var isNewRound = false
     
     var leftTableBtnCurrentSelectIndex: Int?
     var rightTableBtnCurrentSelectIndex: Int?
     
     var shouldHideButton: Bool = false
+    
+    //宣告音樂播放器
+    var audioPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,15 +196,47 @@ class ViewController: UIViewController{
         leftTwoArrowImg.isHidden = true
         rightTwoArrowImg.isHidden = true
         
+        //背景音樂相關設定
+        let urlFile = Bundle.main.url(forResource: "music", withExtension: "mp3")!
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: urlFile)
+        }
+        catch
+        {
+            print("音樂檔案載入錯誤：\(error)")
+            return
+        }
+        //指派音樂播放器的代理人
+        self.audioPlayer.delegate = self
+        //準備播放音樂
+        self.audioPlayer.prepareToPlay()
+        
+    }
+    
+    //音樂播放完成時
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        //繼續播放（循環播放）
+        player.play()
+    }
+    
+    // 當遊戲結束時換頁
+    func checkForPageTransition() {
+        if currentRound == 26 {
+            performSegue(withIdentifier: "goToTheEndView", sender: self)
+        }
     }
     
     func isPlayerOne()->Bool{
         //判斷當前玩家
         if currentRound % 2 == 0{
             return true
+            //玩家一
         }
         else{
             return false
+            //玩家二
         }
     }
     
@@ -225,7 +262,6 @@ class ViewController: UIViewController{
             rightOneArrowImg.isHidden = true
             leftTwoArrowImg.isHidden = false
             rightTwoArrowImg.isHidden = false
-            print("currentRound % 2 != 0")
         }
         else
         {
@@ -233,7 +269,6 @@ class ViewController: UIViewController{
             rightTwoArrowImg.isHidden = true
             leftOneArrowImg.isHidden = false
             rightOneArrowImg.isHidden = false
-            print("currentRound % 2 == 0")
         }
     }
     

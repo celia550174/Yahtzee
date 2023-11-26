@@ -338,6 +338,7 @@
                         <outletCollection property="diceBtnCollection" destination="Ns5-I3-UKM" collectionClass="NSMutableArray" id="p3u-DW-lza"/>
                         <outletCollection property="diceBtnCollection" destination="bh3-rD-85g" collectionClass="NSMutableArray" id="pdc-uR-0tf"/>
                         <outletCollection property="diceBtnCollection" destination="rFF-81-Oeh" collectionClass="NSMutableArray" id="pxq-yN-YNW"/>
+                        <segue destination="Oz9-iZ-QM6" kind="show" identifier="goToTheEndView" id="R2f-eQ-IYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buS-ib-hqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -715,7 +716,7 @@
         <!--The End View Controller-->
         <scene sceneID="sn8-cU-fEr">
             <objects>
-                <viewController id="Oz9-iZ-QM6" customClass="TheEndViewController" customModule="怪獸骰子樂" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Oz9-iZ-QM6" customClass="TheEndViewController" customModule="怪獸骰子樂" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yld-Ys-zFf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -808,6 +809,7 @@
                         <viewLayoutGuide key="safeArea" id="q7G-bE-F95"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.76078431369999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Drf-wh-6VA"/>
                     <connections>
                         <outlet property="again" destination="f0t-dD-EJ0" id="czd-sy-Pa1"/>
                         <outlet property="homePage" destination="s2q-CK-6Ur" id="us6-Bw-oxM"/>
@@ -833,8 +835,8 @@
         <image name="dice_on" width="442" height="136"/>
         <image name="double_on" width="880" height="276"/>
         <image name="enter game button_on" width="951" height="292"/>
-        <image name="headshot_gray " width="194" height="194"/>
-        <image name="headshot_orange" width="206" height="206"/>
+        <image name="headshot_gray " width="388" height="388"/>
+        <image name="headshot_orange" width="412" height="412"/>
         <image name="home_blue" width="776" height="787"/>
         <image name="home_dice" width="983" height="435"/>
         <image name="home_light" width="1688" height="3696"/>
@@ -857,9 +859,9 @@
         <image name="white_4" width="143" height="143"/>
         <image name="white_5" width="143.5" height="143"/>
         <image name="winner" width="299" height="274"/>
-        <image name="瞌睡蟲" width="345.5" height="404"/>
-        <image name="萬事通" width="318" height="446"/>
-        <image name="開心鬼" width="291" height="422.5"/>
+        <image name="瞌睡蟲" width="691" height="808"/>
+        <image name="萬事通" width="636" height="892"/>
+        <image name="開心鬼" width="582" height="845"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
