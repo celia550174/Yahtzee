@@ -222,7 +222,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             performSegue(withIdentifier: "goToTheEndView", sender: self)
         }
     }
-    
+
+    // 在執行Segue前的準備工作
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTheEndView",
+           let TheEndViewController = segue.destination as? TheEndViewController {
+            // 傳遞值給TheEndViewController
+            TheEndViewController.playerOneScore = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
+            TheEndViewController.playerTwoScore = String(playerTwoData.playerScore.reduce(0) { $0 + $1 })
+        }
+    }
+
     func isPlayerOne()->Bool{
         //判斷當前玩家
         if currentRound % 2 == 0{
@@ -505,6 +515,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kTableViewCell) as! TableViewCell
+        
+        // 將 ViewController 中的值傳遞給 TableViewCell
+        cell.configure(withValue: currentRound)
         
         //左邊表格
         if tableView == leftTableView {

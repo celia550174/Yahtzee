@@ -34,6 +34,8 @@ class TableViewCell: UITableViewCell {
     var playerOneScroeButtonClosure:()->() = {}
     var playerTwoScroeButtonClosure:()->() = {}
     
+    var round:Int = 0
+    
     
     @IBAction func playerOneScroeButtonAction(_ sender: UIButton) {
         sender.isHighlighted = true
@@ -61,24 +63,46 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(withValue value: Int) {
+            // 在這裡處理從 ViewController 接收到的值
+            round = value
+        }
     
     func setupView(){
-        self.playerOneScroeButton.clipsToBounds = true
-        self.playerOneScroeButton.contentMode = .scaleAspectFill
-        //框線粗細
-        self.playerOneScroeButton.layer.borderWidth = 1.0
-        self.playerOneScroeButton.layer.borderColor = UIColor.gray.cgColor
-        self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
-        
-        
-        self.playerTwoScroeButton.clipsToBounds = true
-        self.playerTwoScroeButton.contentMode = .scaleAspectFill
-        self.playerTwoScroeButton.layer.borderWidth = 1.0
-        //在這邊改變框框顏色
-        self.playerTwoScroeButton.layer.borderColor = UIColor.gray.cgColor
-        //改變外框圓角
-        self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
-        
+        if round % 2 != 0
+        {
+            self.playerOneScroeButton.clipsToBounds = true
+            self.playerOneScroeButton.contentMode = .scaleAspectFill
+            //框線粗細
+            self.playerOneScroeButton.layer.borderWidth = 1.0
+            self.playerOneScroeButton.layer.borderColor = UIColor.gray.cgColor
+            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
+            
+            self.playerTwoScroeButton.clipsToBounds = true
+            self.playerTwoScroeButton.contentMode = .scaleAspectFill
+            self.playerTwoScroeButton.layer.borderWidth = 2.0
+            //在這邊改變框框顏色
+            self.playerTwoScroeButton.layer.borderColor = UIColor.red.cgColor
+            //改變外框圓角
+            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
+        }
+        else
+        {
+            self.playerOneScroeButton.clipsToBounds = true
+            self.playerOneScroeButton.contentMode = .scaleAspectFill
+            //框線粗細
+            self.playerOneScroeButton.layer.borderWidth = 2.0
+            self.playerOneScroeButton.layer.borderColor = UIColor.red.cgColor
+            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
+            
+            self.playerTwoScroeButton.clipsToBounds = true
+            self.playerTwoScroeButton.contentMode = .scaleAspectFill
+            self.playerTwoScroeButton.layer.borderWidth = 1.0
+            //在這邊改變框框顏色
+            self.playerTwoScroeButton.layer.borderColor = UIColor.gray.cgColor
+            //改變外框圓角
+            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
+        }
     }
     
     
