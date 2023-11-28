@@ -13,8 +13,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var leftTableView: UITableView!
     @IBOutlet weak var rightTableView: UITableView!
     
+    //玩家一名稱
+    @IBOutlet weak var playerOneLbl: UILabel!
+    //玩家二名稱
+    @IBOutlet weak var playerTwoLal: UILabel!
+    //玩家一分數
     @IBOutlet weak var leftScoreLabel: UILabel!
+    //玩家二分數
     @IBOutlet weak var rightScoreLabel: UILabel!
+    //玩家一頭像
+    @IBOutlet weak var playerOneImg: UIImageView!
+    //玩家二頭像
+    @IBOutlet weak var playerTwoImg: UIImageView!
     
     //指引箭頭區
     @IBOutlet weak var leftOneArrowImg: UIImageView!
@@ -22,6 +32,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var rightOneArrowImg: UIImageView!
     @IBOutlet weak var rightTwoArrowImg: UIImageView!
     
+    // 指定顏色的RGB值(橘紅)
+    let orCustomColor = UIColor(red: 210/255.0, green: 88/255.0, blue: 38/255.0, alpha: 1.0)
+    // 指定顏色的RGB值(灰)
+    let gCustomColor = UIColor(red: 145/255.0, green: 142/255.0, blue: 143/255.0, alpha: 1.0)
     
     @IBOutlet weak var rollButton: UIButton!{
         didSet{
@@ -263,6 +277,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
     }
     
+
+
     func changeArrow(_ currentRound:Int){
         if currentRound % 2 != 0
         {
@@ -270,6 +286,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             rightOneArrowImg.isHidden = true
             leftTwoArrowImg.isHidden = false
             rightTwoArrowImg.isHidden = false
+            playerOneLbl.textColor = gCustomColor
+            playerTwoLal.textColor = orCustomColor
+            leftScoreLabel.textColor = gCustomColor
+            rightScoreLabel.textColor = orCustomColor
+            playerOneImg.image = UIImage(named: "X萬事通")
+            playerTwoImg.image = UIImage(named: "O瞌睡蟲")
         }
         else
         {
@@ -277,6 +299,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             rightTwoArrowImg.isHidden = true
             leftOneArrowImg.isHidden = false
             rightOneArrowImg.isHidden = false
+            playerOneLbl.textColor = orCustomColor
+            playerTwoLal.textColor = gCustomColor
+            leftScoreLabel.textColor = orCustomColor
+            rightScoreLabel.textColor = gCustomColor
+            playerOneImg.image = UIImage(named: "O萬事通")
+            playerTwoImg.image = UIImage(named: "X瞌睡蟲")
         }
     }
     

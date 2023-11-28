@@ -87,7 +87,7 @@ class TableViewCell: UITableViewCell {
             //選取玩家二表格
             self.playerTwoScroeButton.clipsToBounds = true
             self.playerTwoScroeButton.contentMode = .scaleAspectFill
-            self.playerTwoScroeButton.layer.borderWidth = 3.0
+            self.playerTwoScroeButton.layer.borderWidth = 3.5
             //在這邊改變框框顏色
             self.playerTwoScroeButton.layer.borderColor = customColor.cgColor
         }
@@ -97,7 +97,7 @@ class TableViewCell: UITableViewCell {
             self.playerOneScroeButton.clipsToBounds = true
             self.playerOneScroeButton.contentMode = .scaleAspectFill
             //框線粗細
-            self.playerOneScroeButton.layer.borderWidth = 3.0
+            self.playerOneScroeButton.layer.borderWidth = 3.5
             self.playerOneScroeButton.layer.borderColor = customColor.cgColor
             
             self.playerTwoScroeButton.clipsToBounds = true

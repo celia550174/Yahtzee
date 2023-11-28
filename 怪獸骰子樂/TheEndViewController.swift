@@ -3,8 +3,16 @@
 import UIKit
 
 class TheEndViewController: UIViewController {
-
+    //顯示輸贏的文字
     @IBOutlet weak var victorLabel: UILabel!
+    //玩家頭像
+    @IBOutlet weak var playerOneImg: UIImageView!
+    @IBOutlet weak var playerTwoImg: UIImageView!
+    //玩家名稱
+    @IBOutlet weak var playerOneNameLbl: UILabel!
+    @IBOutlet weak var playerTwoNameLbl: UILabel!
+    
+    //玩家分數區
     @IBOutlet weak var playerOneScoreLbl: UILabel!
     {
         didSet{
@@ -18,7 +26,7 @@ class TheEndViewController: UIViewController {
         }
     }
     
-    //按鈕位置
+    //按鈕區
     @IBOutlet weak var again: UIButton!{
         didSet{
             again.setImage(UIImage(named: "again_off"), for: .highlighted)
@@ -41,8 +49,14 @@ class TheEndViewController: UIViewController {
 //    var round = 0
     var playerOneScore = ""
     var playerTwoScore = ""
+    //還沒寫，預計要接收
     var playerOneName = "玩家一"
     var playerTwoName = "玩家二"
+    
+    // 指定顏色的RGB值(橘紅)
+    let orCustomColor = UIColor(red: 210/255.0, green: 88/255.0, blue: 38/255.0, alpha: 1.0)
+    // 指定顏色的RGB值(灰)
+    let gCustomColor = UIColor(red: 145/255.0, green: 142/255.0, blue: 143/255.0, alpha: 1.0)
     
     //按鈕啟動
     @IBAction func againTouchUp(_ sender: UIButton) {
@@ -59,8 +73,6 @@ class TheEndViewController: UIViewController {
     
     
     //按鈕按下
-    
-    
     @IBAction func againTouchDown(_ sender: UIButton) {
         
     }
@@ -92,20 +104,36 @@ class TheEndViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func winner()->String{
+    func winner(){
         if playerOneScore == playerTwoScore
         {
-            "平手"
+            victorLabel.text = "平手"
+        }
+        else if playerOneScore > playerTwoScore
+        {
+            victorLabel.text = playerOneName+"贏了！！！"
+            playerOneScoreLbl.textColor = orCustomColor
+            playerTwoScoreLbl.textColor = gCustomColor
+            playerOneNameLbl.textColor = orCustomColor
+            playerTwoNameLbl.textColor = gCustomColor
+            playerOneImg.image = UIImage(named: "O萬事通")
+            playerTwoImg.image = UIImage(named: "X瞌睡蟲")
         }
         else
         {
-            playerOneScore > playerTwoScore ? playerOneName+"贏了！！！" : playerTwoName+"贏了！！！"
+            victorLabel.text = playerTwoName+"贏了！！！"
+            playerOneScoreLbl.textColor = gCustomColor
+            playerTwoScoreLbl.textColor = orCustomColor
+            playerOneNameLbl.textColor = gCustomColor
+            playerTwoNameLbl.textColor = orCustomColor
+            playerOneImg.image = UIImage(named: "X萬事通")
+            playerTwoImg.image = UIImage(named: "O瞌睡蟲")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        victorLabel.text = winner()
+        winner()
         // Do any additional setup after loading the view.
     }
     
