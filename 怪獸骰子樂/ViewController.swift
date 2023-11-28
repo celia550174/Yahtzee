@@ -139,6 +139,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         print("回合數:\(currentRound)")
         changeArrow(currentRound)
         
+        // 通知更新表格視圖
+        NotificationCenter.default.post(name: .scoresUpdated, object: nil)
+        
         // 重新設定 isDiceSelected 為全 false，解鎖所有骰子
         game.isDiceSelected = Array(repeating: false, count: diceBtnCollection.count)
         //還原骰子的外觀

@@ -34,8 +34,14 @@ class TableViewCell: UITableViewCell {
     var playerOneScroeButtonClosure:()->() = {}
     var playerTwoScroeButtonClosure:()->() = {}
     
-    var round:Int = 0
-    
+    var round:Int = 0{
+        didSet {
+            // 當 round 屬性變化時，即時更新 UI
+            setupView()
+        }
+    }
+    // 指定顏色的RGB值(格子外框橘紅色)
+    let customColor = UIColor(red: 210/255.0, green: 88/255.0, blue: 38/255.0, alpha: 1.0)
     
     @IBAction func playerOneScroeButtonAction(_ sender: UIButton) {
         sender.isHighlighted = true
@@ -54,7 +60,6 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none //選取表格本身不會有反應
-        setupView()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -76,24 +81,24 @@ class TableViewCell: UITableViewCell {
             //框線粗細
             self.playerOneScroeButton.layer.borderWidth = 1.0
             self.playerOneScroeButton.layer.borderColor = UIColor.gray.cgColor
+            //改變外框圓角
             self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
             
+            //選取玩家二表格
             self.playerTwoScroeButton.clipsToBounds = true
             self.playerTwoScroeButton.contentMode = .scaleAspectFill
-            self.playerTwoScroeButton.layer.borderWidth = 2.0
+            self.playerTwoScroeButton.layer.borderWidth = 3.0
             //在這邊改變框框顏色
-            self.playerTwoScroeButton.layer.borderColor = UIColor.red.cgColor
-            //改變外框圓角
-            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
+            self.playerTwoScroeButton.layer.borderColor = customColor.cgColor
         }
         else
         {
+            //選取玩家一表格
             self.playerOneScroeButton.clipsToBounds = true
             self.playerOneScroeButton.contentMode = .scaleAspectFill
             //框線粗細
-            self.playerOneScroeButton.layer.borderWidth = 2.0
-            self.playerOneScroeButton.layer.borderColor = UIColor.red.cgColor
-            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
+            self.playerOneScroeButton.layer.borderWidth = 3.0
+            self.playerOneScroeButton.layer.borderColor = customColor.cgColor
             
             self.playerTwoScroeButton.clipsToBounds = true
             self.playerTwoScroeButton.contentMode = .scaleAspectFill
