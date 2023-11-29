@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRG-ML-K4B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OXU-cn-Q0j">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -312,7 +312,7 @@
                         <outlet property="playerOneImg" destination="V5V-pk-4Mv" id="yMI-ub-KWD"/>
                         <outlet property="playerOneLbl" destination="ghw-8v-rcQ" id="S78-BO-xei"/>
                         <outlet property="playerTwoImg" destination="NG7-XO-Xcn" id="fEh-Fe-83U"/>
-                        <outlet property="playerTwoLal" destination="jfy-iM-OjD" id="nhT-9e-QKj"/>
+                        <outlet property="playerTwoLbl" destination="jfy-iM-OjD" id="nhT-9e-QKj"/>
                         <outlet property="rightOneArrowImg" destination="KoB-y8-6BQ" id="eY5-z2-JPO"/>
                         <outlet property="rightScoreLabel" destination="O7j-RA-2g1" id="g32-Pa-IeZ"/>
                         <outlet property="rightTableView" destination="Ayk-zV-byu" id="L50-9f-HIO"/>

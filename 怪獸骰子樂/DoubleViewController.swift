@@ -2,7 +2,7 @@
 import UIKit
 
 class DoubleViewController: UIViewController {
-    //改一個測試上傳
+    
     var isPlayerOnePictureSelected = true
     var isPlayerTwoPictureSelected = true
     
@@ -47,11 +47,11 @@ class DoubleViewController: UIViewController {
     
     //用來記錄玩家選擇的怪獸
     var playerOneSelectedMonster: String?
+    var playerTwoSelectedMonster: String?
     
     //玩家一圖片觸控區
     @IBAction func playerOneImgOneTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-
-//        isPlayerOnePictureSelected = true
+        
         playerOneImgOne.image = UIImage(named: "O萬事通")
         playerOneLblOne.textColor = orCustomColor
         playerOneLblTwo.textColor = gCustomColor
@@ -66,8 +66,7 @@ class DoubleViewController: UIViewController {
     }
     //開心鬼 O開心鬼
     @IBAction func playerOneImgTwoTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-
-//        isPlayerOnePictureSelected = true
+        
         playerOneImgTwo.image = UIImage(named: "O開心鬼")
         playerOneLblOne.textColor = gCustomColor
         playerOneLblTwo.textColor = orCustomColor
@@ -82,8 +81,7 @@ class DoubleViewController: UIViewController {
     }
     //瞌睡蟲 O瞌睡蟲
     @IBAction func playerOneImgThreeTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-
-//        isPlayerOnePictureSelected = true
+        
         playerOneImgThree.image = UIImage(named: "O瞌睡蟲")
         playerOneLblOne.textColor = gCustomColor
         playerOneLblTwo.textColor = gCustomColor
@@ -98,30 +96,44 @@ class DoubleViewController: UIViewController {
     
     //玩家二圖片觸控區
     @IBAction func playerTwoImgOneTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        isPlayerTwoPictureSelected.toggle()
-                if isPlayerTwoPictureSelected == true{
-                    playerTwoImgOne.image = UIImage(named: "萬事通")
-                }else{
-                    playerTwoImgOne.image = UIImage(named: "O萬事通")
-                }
+        playerTwoImgOne.image = UIImage(named: "O萬事通")
+        playerTwoLblOne.textColor = orCustomColor
+        playerTwoLblTwo.textColor = gCustomColor
+        playerTwoLblThree.textColor = gCustomColor
+        playerTwoSelectedMonster = "萬事通"
+        
+            
+        // 取消其他怪獸的選擇
+        isPlayerTwoPictureSelected = false
+        playerTwoImgTwo.image = UIImage(named: "開心鬼")
+        playerTwoImgThree.image = UIImage(named: "瞌睡蟲")
     }
     
     @IBAction func playerTwoImgTwoTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        isPlayerTwoPictureSelected.toggle()
-                if isPlayerTwoPictureSelected == true{
-                    playerTwoImgTwo.image = UIImage(named: "開心鬼")
-                }else{
-                    playerTwoImgTwo.image = UIImage(named: "O開心鬼")
-                }
+        playerTwoImgTwo.image = UIImage(named: "O開心鬼")
+        playerTwoLblOne.textColor = gCustomColor
+        playerTwoLblTwo.textColor = orCustomColor
+        playerTwoLblThree.textColor = gCustomColor
+        playerTwoSelectedMonster = "開心鬼"
+        
+            
+        // 取消其他怪獸的選擇
+        isPlayerTwoPictureSelected = false
+        playerTwoImgOne.image = UIImage(named: "萬事通")
+        playerTwoImgThree.image = UIImage(named: "瞌睡蟲")
     }
     
     @IBAction func playerTwoImgThreeTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        isPlayerTwoPictureSelected.toggle()
-                if isPlayerTwoPictureSelected == true{
-                    playerTwoImgThree.image = UIImage(named: "瞌睡蟲")
-                }else{
-                    playerTwoImgThree.image = UIImage(named: "O瞌睡蟲")
-                }
+        playerTwoImgThree.image = UIImage(named: "O瞌睡蟲")
+        playerTwoLblOne.textColor = gCustomColor
+        playerTwoLblTwo.textColor = gCustomColor
+        playerTwoLblThree.textColor = orCustomColor
+        playerTwoSelectedMonster = "瞌睡蟲"
+            
+        // 取消其他怪獸的選擇
+        isPlayerTwoPictureSelected = false
+        playerTwoImgOne.image = UIImage(named: "萬事通")
+        playerTwoImgTwo.image = UIImage(named: "開心鬼")
     }
     
     //按鈕啟動
@@ -133,12 +145,14 @@ class DoubleViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startGame" {
             if let destinationVC = segue.destination as? ViewController {
-                if let playerOneSelectedMonster = sender as? String {
-                    destinationVC.playerOneSelectedMonster = playerOneSelectedMonster
+                if let monsters = sender as? (String, String) {
+                    destinationVC.playerOneSelectedMonster = monsters.0
+                    destinationVC.playerTwoSelectedMonster = monsters.1
                 }
             }
         }
     }
+
     
     
     @IBAction func backToPreviousPageTouchUp(_ sender: UIButton) {
@@ -149,14 +163,24 @@ class DoubleViewController: UIViewController {
     
     
     @IBAction func startGameTouchDown(_ sender: UIButton) {
-        if let playerOneSelectedMonster = playerOneSelectedMonster {
-                // 在這裡執行頁面過渡，將 selectedMonster 傳遞到下一頁
-                performSegue(withIdentifier: "startGame", sender: playerOneSelectedMonster)
-            } else {
-                // 提示用戶選擇怪獸
-            }
+        
+        if let playerOneSelectedMonster = playerOneSelectedMonster, let playerTwoSelectedMonster = playerTwoSelectedMonster {
+            // 在這裡執行頁面過渡，將 selectedMonster 傳遞到下一頁
+            // 注意：這裡假設您希望傳遞兩個選定的怪獸
+            performSegue(withIdentifier: "startGame", sender: (playerOneSelectedMonster, playerTwoSelectedMonster))
+        } else {
+            // 提示用戶選擇怪獸
+            showAlert(message: "請確保兩位玩家都已選擇代表自己的怪獸。")
+        }
+
     }
     
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
  
     
     @IBAction func backToPreviousPageTouchDown(_ sender: UIButton) {        

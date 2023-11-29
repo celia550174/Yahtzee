@@ -17,14 +17,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var playerOneLbl: UILabel!
     {
         didSet{
-            if let monster = playerOneSelectedMonster {
-                playerOneLbl.text = monster
+            if let monster1 = playerOneSelectedMonster {
+                playerOneLbl.text = monster1
                 }
             
         }
     }
     //玩家二名稱
-    @IBOutlet weak var playerTwoLal: UILabel!
+    @IBOutlet weak var playerTwoLbl: UILabel!
+    {
+        didSet{
+            if let monster2 = playerTwoSelectedMonster {
+                playerTwoLbl.text = monster2
+                }
+            
+        }
+    }
     //玩家一分數
     @IBOutlet weak var leftScoreLabel: UILabel!
     //玩家二分數
@@ -33,13 +41,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var playerOneImg: UIImageView!
     {
         didSet{
-            if let monster = playerOneSelectedMonster {
-                    playerOneImg.image = UIImage(named: "O\(monster)")
+            if let monster1 = playerOneSelectedMonster {
+                    playerOneImg.image = UIImage(named: "O\(monster1)")
                 }
         }
     }
     //玩家二頭像
     @IBOutlet weak var playerTwoImg: UIImageView!
+    {
+        didSet{
+            if let monster2 = playerTwoSelectedMonster {
+                    playerTwoImg.image = UIImage(named: "X\(monster2)")
+                }
+        }
+    }
     
     //指引箭頭區
     @IBOutlet weak var leftOneArrowImg: UIImageView!
@@ -75,7 +90,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     //接收DoubleViewController的傳值
     var playerOneSelectedMonster: String?
-
+    var playerTwoSelectedMonster: String?
     
     @IBOutlet var diceBtnCollection: [UIButton]!
     
@@ -262,12 +277,24 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     // 在執行Segue前的準備工作
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTheEndView",
-           let TheEndViewController = segue.destination as? TheEndViewController {
+           let theEndViewController = segue.destination as? TheEndViewController {
             // 傳遞值給TheEndViewController
-            TheEndViewController.playerOneScore = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
-            TheEndViewController.playerTwoScore = String(playerTwoData.playerScore.reduce(0) { $0 + $1 })
+            theEndViewController.playerOneScore = String(playerOneData.playerScore.reduce(0) { $0 + $1 })
+            theEndViewController.playerTwoScore = String(playerTwoData.playerScore.reduce(0) { $0 + $1 })
+            theEndViewController.playerOneSelectedMonster = playerOneSelectedMonster
+            theEndViewController.playerTwoSelectedMonster = playerTwoSelectedMonster
+        }
+
+        if segue.identifier == "startGame" {
+            if let destinationVC = segue.destination as? ViewController {
+                if let monsters = sender as? (String, String) {
+                    destinationVC.playerOneSelectedMonster = monsters.0
+                    destinationVC.playerTwoSelectedMonster = monsters.1
+                }
+            }
         }
     }
+
 
     func isPlayerOne()->Bool{
         //判斷當前玩家
@@ -306,12 +333,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             leftTwoArrowImg.isHidden = false
             rightTwoArrowImg.isHidden = false
             playerOneLbl.textColor = gCustomColor
-            playerTwoLal.textColor = orCustomColor
+            playerTwoLbl.textColor = orCustomColor
             leftScoreLabel.textColor = gCustomColor
             rightScoreLabel.textColor = orCustomColor
             playerOneImg.image = UIImage(named: "X\(playerOneSelectedMonster!)")
-            playerTwoImg.image = UIImage(named: "O瞌睡蟲")
-            print("X\(playerOneSelectedMonster!)")
+            playerTwoImg.image = UIImage(named: "O\(playerTwoSelectedMonster!)")
+            print("X\(playerTwoSelectedMonster!)")
         }
         else
         {
@@ -320,12 +347,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             leftOneArrowImg.isHidden = false
             rightOneArrowImg.isHidden = false
             playerOneLbl.textColor = orCustomColor
-            playerTwoLal.textColor = gCustomColor
+            playerTwoLbl.textColor = gCustomColor
             leftScoreLabel.textColor = orCustomColor
             rightScoreLabel.textColor = gCustomColor
             playerOneImg.image = UIImage(named: "O\(playerOneSelectedMonster!)")
-            playerTwoImg.image = UIImage(named: "X瞌睡蟲")
-            print("O\(playerOneSelectedMonster!)")
+            playerTwoImg.image = UIImage(named: "X\(playerTwoSelectedMonster!)")
+            print("O\(playerTwoSelectedMonster!)")
         }
     }
     

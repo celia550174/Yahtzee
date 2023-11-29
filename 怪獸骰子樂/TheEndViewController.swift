@@ -13,7 +13,17 @@ class TheEndViewController: UIViewController {
     @IBOutlet weak var playerTwoImg: UIImageView!
     //玩家名稱
     @IBOutlet weak var playerOneNameLbl: UILabel!
+    {
+        didSet{
+            playerOneNameLbl.text = playerOneSelectedMonster!
+        }
+    }
     @IBOutlet weak var playerTwoNameLbl: UILabel!
+    {
+        didSet{
+            playerTwoNameLbl.text = playerTwoSelectedMonster!
+        }
+    }
     
     //玩家分數區
     @IBOutlet weak var playerOneScoreLbl: UILabel!
@@ -52,9 +62,8 @@ class TheEndViewController: UIViewController {
 //    var round = 0
     var playerOneScore = ""
     var playerTwoScore = ""
-    //還沒寫，預計要接收
-    var playerOneName = "玩家一"
-    var playerTwoName = "玩家二"
+    var playerOneSelectedMonster: String?
+    var playerTwoSelectedMonster: String?
     
     // 指定顏色的RGB值(橘紅)
     let orCustomColor = UIColor(red: 210/255.0, green: 88/255.0, blue: 38/255.0, alpha: 1.0)
@@ -114,23 +123,23 @@ class TheEndViewController: UIViewController {
         }
         else if playerOneScore > playerTwoScore
         {
-            victorLabel.text = playerOneName+"贏了！！！"
+            victorLabel.text = playerOneSelectedMonster!+"贏了！！！"
             playerOneScoreLbl.textColor = orCustomColor
             playerTwoScoreLbl.textColor = gCustomColor
             playerOneNameLbl.textColor = orCustomColor
             playerTwoNameLbl.textColor = gCustomColor
-            playerOneImg.image = UIImage(named: "O萬事通")
-            playerTwoImg.image = UIImage(named: "X瞌睡蟲")
+            playerOneImg.image = UIImage(named: "\(playerOneSelectedMonster!)winner")
+            playerTwoImg.image = UIImage(named: "X\(playerTwoSelectedMonster!)")
         }
         else
         {
-            victorLabel.text = playerTwoName+"贏了！！！"
+            victorLabel.text = playerTwoSelectedMonster!+"贏了！！！"
             playerOneScoreLbl.textColor = gCustomColor
             playerTwoScoreLbl.textColor = orCustomColor
             playerOneNameLbl.textColor = gCustomColor
             playerTwoNameLbl.textColor = orCustomColor
-            playerOneImg.image = UIImage(named: "X萬事通")
-            playerTwoImg.image = UIImage(named: "O瞌睡蟲")
+            playerOneImg.image = UIImage(named: "X\(playerOneSelectedMonster!)")
+            playerTwoImg.image = UIImage(named: "\(playerTwoSelectedMonster!)winner")
         }
     }
     
