@@ -7,7 +7,6 @@ extension Notification.Name
     static let scoresUpdated = Notification.Name("ScoresUpdated")
 }
 
-//test
 
 class ViewController: UIViewController, AVAudioPlayerDelegate{
     
@@ -16,6 +15,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     //玩家一名稱
     @IBOutlet weak var playerOneLbl: UILabel!
+    {
+        didSet{
+            if let monster = playerOneSelectedMonster {
+                playerOneLbl.text = monster
+                }
+            
+        }
+    }
     //玩家二名稱
     @IBOutlet weak var playerTwoLal: UILabel!
     //玩家一分數
@@ -24,6 +31,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var rightScoreLabel: UILabel!
     //玩家一頭像
     @IBOutlet weak var playerOneImg: UIImageView!
+    {
+        didSet{
+            if let monster = playerOneSelectedMonster {
+                    playerOneImg.image = UIImage(named: "O\(monster)")
+                }
+        }
+    }
     //玩家二頭像
     @IBOutlet weak var playerTwoImg: UIImageView!
     
@@ -59,11 +73,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         }
     }
     
+    //接收DoubleViewController的傳值
+    var playerOneSelectedMonster: String?
+
+    
     @IBOutlet var diceBtnCollection: [UIButton]!
     
     @IBAction func myDiceBtn(_ sender: UIButton) {
         let diceIndex = sender.tag
-        
+        //是一種切換（toggle）布林值的方法，用於將布林值的狀態反轉，即從 true 變為 false，或從 false 變為 true
         game.isDiceSelected[diceIndex].toggle()
         
         if game.isDiceSelected[diceIndex] {
@@ -291,8 +309,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             playerTwoLal.textColor = orCustomColor
             leftScoreLabel.textColor = gCustomColor
             rightScoreLabel.textColor = orCustomColor
-            playerOneImg.image = UIImage(named: "X萬事通")
+            playerOneImg.image = UIImage(named: "X\(playerOneSelectedMonster!)")
             playerTwoImg.image = UIImage(named: "O瞌睡蟲")
+            print("X\(playerOneSelectedMonster!)")
         }
         else
         {
@@ -304,8 +323,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             playerTwoLal.textColor = gCustomColor
             leftScoreLabel.textColor = orCustomColor
             rightScoreLabel.textColor = gCustomColor
-            playerOneImg.image = UIImage(named: "O萬事通")
+            playerOneImg.image = UIImage(named: "O\(playerOneSelectedMonster!)")
             playerTwoImg.image = UIImage(named: "X瞌睡蟲")
+            print("O\(playerOneSelectedMonster!)")
         }
     }
     

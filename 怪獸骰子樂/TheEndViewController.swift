@@ -1,8 +1,11 @@
 
-
+import ImageIO
 import UIKit
 
 class TheEndViewController: UIViewController {
+    
+    @IBOutlet weak var gifImageViewLight: UIImageView!      //背景光輝
+    
     //顯示輸贏的文字
     @IBOutlet weak var victorLabel: UILabel!
     //玩家頭像
@@ -134,18 +137,35 @@ class TheEndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         winner()
-        // Do any additional setup after loading the view.
+        // 設置[Light]GIF圖片的文件名
+              let gifImageName3 = "light"
+
+              // 取得GIF圖片的URL或Bundle中的路徑
+        if let gifImageUrl = Bundle.main.url(forResource: gifImageName3, withExtension: "gif") {
+            // 使用CGImageSource來讀取GIF圖片
+            if let imageSource = CGImageSourceCreateWithURL(gifImageUrl as CFURL, nil) {
+                // 取得GIF圖片的幀數
+                let frameCount = CGImageSourceGetCount(imageSource)
+                
+                // 初始化UIImage陣列來保存GIF圖片的每一幀
+                var images: [UIImage] = []
+                
+                // 迭代每一幀，將其添加到UIImage陣列中
+                for i in 0..<frameCount {
+                    if let cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil) {
+                        let uiImage = UIImage(cgImage: cgImage)
+                        images.append(uiImage)
+                    }
+                }
+                // 設置UIImageView的animationImages屬性，以顯示GIF圖片
+                gifImageViewLight.animationImages = images
+                gifImageViewLight.animationDuration = TimeInterval(frameCount) * 0.3 // 設置動畫持續時間
+                gifImageViewLight.startAnimating() // 開始動畫
+            }
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

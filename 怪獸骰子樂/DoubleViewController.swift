@@ -40,33 +40,60 @@ class DoubleViewController: UIViewController {
         }
     }
     
+    // 指定顏色的RGB值(橘紅)
+    let orCustomColor = UIColor(red: 210/255.0, green: 88/255.0, blue: 38/255.0, alpha: 1.0)
+    // 指定顏色的RGB值(灰)
+    let gCustomColor = UIColor(red: 145/255.0, green: 142/255.0, blue: 143/255.0, alpha: 1.0)
+    
+    //用來記錄玩家選擇的怪獸
+    var playerOneSelectedMonster: String?
+    
     //玩家一圖片觸控區
     @IBAction func playerOneImgOneTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        //是一種切換（toggle）布林值的方法，用於將布林值的狀態反轉，即從 true 變為 false，或從 false 變為 true
-        isPlayerOnePictureSelected.toggle()
-                if isPlayerOnePictureSelected == true{
-                    playerOneImgOne.image = UIImage(named: "萬事通")
-                }else{
-                    playerOneImgOne.image = UIImage(named: "O萬事通")
-                }
+
+//        isPlayerOnePictureSelected = true
+        playerOneImgOne.image = UIImage(named: "O萬事通")
+        playerOneLblOne.textColor = orCustomColor
+        playerOneLblTwo.textColor = gCustomColor
+        playerOneLblThree.textColor = gCustomColor
+        playerOneSelectedMonster = "萬事通"
+        
+            
+        // 取消其他怪獸的選擇
+        isPlayerOnePictureSelected = false
+        playerOneImgTwo.image = UIImage(named: "開心鬼")
+        playerOneImgThree.image = UIImage(named: "瞌睡蟲")
     }
     //開心鬼 O開心鬼
     @IBAction func playerOneImgTwoTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        isPlayerOnePictureSelected.toggle()
-                if isPlayerOnePictureSelected == true{
-                    playerOneImgTwo.image = UIImage(named: "開心鬼")
-                }else{
-                    playerOneImgTwo.image = UIImage(named: "O開心鬼")
-                }
+
+//        isPlayerOnePictureSelected = true
+        playerOneImgTwo.image = UIImage(named: "O開心鬼")
+        playerOneLblOne.textColor = gCustomColor
+        playerOneLblTwo.textColor = orCustomColor
+        playerOneLblThree.textColor = gCustomColor
+        playerOneSelectedMonster = "開心鬼"
+        
+            
+        // 取消其他怪獸的選擇
+        isPlayerOnePictureSelected = false
+        playerOneImgOne.image = UIImage(named: "萬事通")
+        playerOneImgThree.image = UIImage(named: "瞌睡蟲")
     }
     //瞌睡蟲 O瞌睡蟲
     @IBAction func playerOneImgThreeTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        isPlayerOnePictureSelected.toggle()
-                if isPlayerOnePictureSelected == true{
-                    playerOneImgThree.image = UIImage(named: "瞌睡蟲")
-                }else{
-                    playerOneImgThree.image = UIImage(named: "O瞌睡蟲")
-                }
+
+//        isPlayerOnePictureSelected = true
+        playerOneImgThree.image = UIImage(named: "O瞌睡蟲")
+        playerOneLblOne.textColor = gCustomColor
+        playerOneLblTwo.textColor = gCustomColor
+        playerOneLblThree.textColor = orCustomColor
+        playerOneSelectedMonster = "瞌睡蟲"
+            
+        // 取消其他怪獸的選擇
+        isPlayerOnePictureSelected = false
+        playerOneImgOne.image = UIImage(named: "萬事通")
+        playerOneImgTwo.image = UIImage(named: "開心鬼")
     }
     
     //玩家二圖片觸控區
@@ -100,6 +127,17 @@ class DoubleViewController: UIViewController {
     //按鈕啟動
     
     @IBAction func startGameTouchUp(_ sender: UIButton) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "startGame" {
+            if let destinationVC = segue.destination as? ViewController {
+                if let playerOneSelectedMonster = sender as? String {
+                    destinationVC.playerOneSelectedMonster = playerOneSelectedMonster
+                }
+            }
+        }
     }
     
     
@@ -111,6 +149,12 @@ class DoubleViewController: UIViewController {
     
     
     @IBAction func startGameTouchDown(_ sender: UIButton) {
+        if let playerOneSelectedMonster = playerOneSelectedMonster {
+                // 在這裡執行頁面過渡，將 selectedMonster 傳遞到下一頁
+                performSegue(withIdentifier: "startGame", sender: playerOneSelectedMonster)
+            } else {
+                // 提示用戶選擇怪獸
+            }
     }
     
  
@@ -121,18 +165,9 @@ class DoubleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -90,6 +90,7 @@ class TableViewCell: UITableViewCell {
             self.playerTwoScroeButton.layer.borderWidth = 3.5
             //在這邊改變框框顏色
             self.playerTwoScroeButton.layer.borderColor = customColor.cgColor
+            self.playerTwoScroeButton.layer.cornerRadius = 0
         }
         else
         {
@@ -99,6 +100,7 @@ class TableViewCell: UITableViewCell {
             //框線粗細
             self.playerOneScroeButton.layer.borderWidth = 3.5
             self.playerOneScroeButton.layer.borderColor = customColor.cgColor
+            self.playerOneScroeButton.layer.cornerRadius = 0
             
             self.playerTwoScroeButton.clipsToBounds = true
             self.playerTwoScroeButton.contentMode = .scaleAspectFill

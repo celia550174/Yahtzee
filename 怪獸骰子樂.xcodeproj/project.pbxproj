@@ -18,6 +18,9 @@
 		4EB297422B064D330010F1EA /* DoubleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297412B064D330010F1EA /* DoubleViewController.swift */; };
 		4EB297442B064D930010F1EA /* TheEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB297432B064D930010F1EA /* TheEndViewController.swift */; };
 		4EFC3D262B135F530053FE1D /* music in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC3D252B135F530053FE1D /* music */; };
+		AAB25AE42B16D78A00785D6E /* light.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAB25AE32B16D78A00785D6E /* light.gif */; };
+		AAB25AE72B16D79A00785D6E /* point.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAB25AE52B16D79A00785D6E /* point.gif */; };
+		AAB25AE82B16D79A00785D6E /* point2.gif in Resources */ = {isa = PBXBuildFile; fileRef = AAB25AE62B16D79A00785D6E /* point2.gif */; };
 		AAB392F22AFB281C006B58CD /* BounsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */; };
 		AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */; };
 		AAD58BCE2AD8EFEE00C66E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD58BCD2AD8EFEE00C66E22 /* AppDelegate.swift */; };
@@ -55,6 +58,9 @@
 		4EB297412B064D330010F1EA /* DoubleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleViewController.swift; sourceTree = "<group>"; };
 		4EB297432B064D930010F1EA /* TheEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheEndViewController.swift; sourceTree = "<group>"; };
 		4EFC3D252B135F530053FE1D /* music */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = music; sourceTree = SOURCE_ROOT; };
+		AAB25AE32B16D78A00785D6E /* light.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = light.gif; sourceTree = SOURCE_ROOT; };
+		AAB25AE52B16D79A00785D6E /* point.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = point.gif; sourceTree = SOURCE_ROOT; };
+		AAB25AE62B16D79A00785D6E /* point2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = point2.gif; sourceTree = SOURCE_ROOT; };
 		AAB392F02AFB281C006B58CD /* BounsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounsTableViewCell.swift; sourceTree = "<group>"; };
 		AAB392F12AFB281C006B58CD /* BounsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BounsTableViewCell.xib; sourceTree = "<group>"; };
 		AAD58BCA2AD8EFEE00C66E22 /* 怪獸骰子樂.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "怪獸骰子樂.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +137,9 @@
 				AAD58BD82AD8EFEF00C66E22 /* LaunchScreen.storyboard */,
 				AAD58BD62AD8EFEF00C66E22 /* Assets.xcassets */,
 				AAD58BDB2AD8EFEF00C66E22 /* Info.plist */,
+				AAB25AE32B16D78A00785D6E /* light.gif */,
+				AAB25AE52B16D79A00785D6E /* point.gif */,
+				AAB25AE62B16D79A00785D6E /* point2.gif */,
 			);
 			path = "怪獸骰子樂";
 			sourceTree = "<group>";
@@ -242,9 +251,12 @@
 				AAD58BDA2AD8EFEF00C66E22 /* LaunchScreen.storyboard in Resources */,
 				AAB392F32AFB281C006B58CD /* BounsTableViewCell.xib in Resources */,
 				AAD58BD72AD8EFEF00C66E22 /* Assets.xcassets in Resources */,
+				AAB25AE82B16D79A00785D6E /* point2.gif in Resources */,
 				185D39E62AF6B897006F0C0D /* TableViewCell.xib in Resources */,
 				4EFC3D262B135F530053FE1D /* music in Resources */,
 				183B1B3B2AF6BCD900D39829 /* Main.storyboard in Resources */,
+				AAB25AE42B16D78A00785D6E /* light.gif in Resources */,
+				AAB25AE72B16D79A00785D6E /* point.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
