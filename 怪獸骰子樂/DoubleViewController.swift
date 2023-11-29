@@ -50,6 +50,7 @@ class DoubleViewController: UIViewController {
     var playerTwoSelectedMonster: String?
     
     //玩家一圖片觸控區
+    //萬事通
     @IBAction func playerOneImgOneTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         
         playerOneImgOne.image = UIImage(named: "O萬事通")
@@ -64,7 +65,7 @@ class DoubleViewController: UIViewController {
         playerOneImgTwo.image = UIImage(named: "開心鬼")
         playerOneImgThree.image = UIImage(named: "瞌睡蟲")
     }
-    //開心鬼 O開心鬼
+    //開心鬼
     @IBAction func playerOneImgTwoTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         
         playerOneImgTwo.image = UIImage(named: "O開心鬼")
@@ -79,7 +80,7 @@ class DoubleViewController: UIViewController {
         playerOneImgOne.image = UIImage(named: "萬事通")
         playerOneImgThree.image = UIImage(named: "瞌睡蟲")
     }
-    //瞌睡蟲 O瞌睡蟲
+    //瞌睡蟲
     @IBAction func playerOneImgThreeTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         
         playerOneImgThree.image = UIImage(named: "O瞌睡蟲")
@@ -95,6 +96,7 @@ class DoubleViewController: UIViewController {
     }
     
     //玩家二圖片觸控區
+    //萬事通
     @IBAction func playerTwoImgOneTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         playerTwoImgOne.image = UIImage(named: "O萬事通")
         playerTwoLblOne.textColor = orCustomColor
@@ -108,7 +110,7 @@ class DoubleViewController: UIViewController {
         playerTwoImgTwo.image = UIImage(named: "開心鬼")
         playerTwoImgThree.image = UIImage(named: "瞌睡蟲")
     }
-    
+    //開心鬼
     @IBAction func playerTwoImgTwoTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         playerTwoImgTwo.image = UIImage(named: "O開心鬼")
         playerTwoLblOne.textColor = gCustomColor
@@ -122,7 +124,7 @@ class DoubleViewController: UIViewController {
         playerTwoImgOne.image = UIImage(named: "萬事通")
         playerTwoImgThree.image = UIImage(named: "瞌睡蟲")
     }
-    
+    //瞌睡蟲
     @IBAction func playerTwoImgThreeTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         playerTwoImgThree.image = UIImage(named: "O瞌睡蟲")
         playerTwoLblOne.textColor = gCustomColor
@@ -137,31 +139,15 @@ class DoubleViewController: UIViewController {
     }
     
     //按鈕啟動
-    
     @IBAction func startGameTouchUp(_ sender: UIButton) {
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "startGame" {
-            if let destinationVC = segue.destination as? ViewController {
-                if let monsters = sender as? (String, String) {
-                    destinationVC.playerOneSelectedMonster = monsters.0
-                    destinationVC.playerTwoSelectedMonster = monsters.1
-                }
-            }
-        }
-    }
-
-    
     
     @IBAction func backToPreviousPageTouchUp(_ sender: UIButton) {
     }
     
     
     //按鈕按下
-    
-    
     @IBAction func startGameTouchDown(_ sender: UIButton) {
         
         if let playerOneSelectedMonster = playerOneSelectedMonster, let playerTwoSelectedMonster = playerTwoSelectedMonster {
@@ -175,23 +161,30 @@ class DoubleViewController: UIViewController {
 
     }
     
+    @IBAction func backToPreviousPageTouchDown(_ sender: UIButton) {        
+    }
+    
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
- 
     
-    @IBAction func backToPreviousPageTouchDown(_ sender: UIButton) {        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "startGame" {
+            if let destinationVC = segue.destination as? ViewController {
+                if let monsters = sender as? (String, String) {
+                    destinationVC.playerOneSelectedMonster = monsters.0
+                    destinationVC.playerTwoSelectedMonster = monsters.1
+                }
+            }
+        }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-
-
-
 }

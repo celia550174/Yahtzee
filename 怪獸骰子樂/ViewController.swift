@@ -125,30 +125,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBAction func volumeBtnPressed(_ sender: Any) {
         self.volumeBtn.isSelected = !self.volumeBtn.isSelected
         if let audioPlayer = ViewController.audioPlayer {
-                    if audioPlayer.isPlaying {
-                        // 如果正在播放，則暫停播放
-                        audioPlayer.pause()
-                    } else {
-                        // 如果暫停或停止，則開始播放
-                        audioPlayer.play()
-                    }
-                }
-//        if audioPlayer != nil /*&& !audioPlayer.isPlaying*/
-//        {
-//            if audioPlayer.isPlaying {
-//                            // 如果正在播放，則暫停播放
-//                            audioPlayer.pause()
-//                        } else {
-//                            // 如果暫停或停止，則開始播放
-//                            audioPlayer.play()
-//                        }
-//            
-//        }
-////        else
-////        {
-////            //暫停播放
-////            audioPlayer.pause()
-////        }
+            if audioPlayer.isPlaying {
+                // 如果正在播放，則暫停播放
+                audioPlayer.pause()
+            } else {
+                // 如果暫停或停止，則開始播放
+                audioPlayer.play()
+            }
+        }
     }
     
     @IBAction func rollButtonPressed(_ sender: UIButton)
@@ -199,7 +183,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         setBtnSelected()
         // 增加回合數
         currentRound += 1
-        print("回合數:\(currentRound)")
         changeArrow(currentRound)
         
         // 通知更新表格視圖

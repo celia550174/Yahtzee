@@ -59,7 +59,6 @@ class TheEndViewController: UIViewController {
     }
     
     //用來接收ViewController頁的值
-//    var round = 0
     var playerOneScore = ""
     var playerTwoScore = ""
     var playerOneSelectedMonster: String?
@@ -74,10 +73,8 @@ class TheEndViewController: UIViewController {
     @IBAction func againTouchUp(_ sender: UIButton) {
     }
     
-    
     @IBAction func homePageTouchUp(_ sender: UIButton) {
     }
-    
     
     @IBAction func leaveTouchUp(_ sender: UIButton) {
     }
@@ -86,13 +83,10 @@ class TheEndViewController: UIViewController {
     
     //按鈕按下
     @IBAction func againTouchDown(_ sender: UIButton) {
-        
     }
     
     @IBAction func homePageTouchDown(_ sender: UIButton) {
-        
     }
-    
     
     @IBAction func leaveTouchDown(_ sender: UIButton) {
         
@@ -173,8 +167,4 @@ class TheEndViewController: UIViewController {
             }
         }
     }
-    
-
-
-
 }
