@@ -2,7 +2,7 @@
 import UIKit
 
 class DoubleViewController: UIViewController {
-    
+    //改一個測試上傳
     var isPlayerOnePictureSelected = true
     var isPlayerTwoPictureSelected = true
     
