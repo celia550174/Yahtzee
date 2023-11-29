@@ -69,8 +69,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     @IBOutlet weak var rollButton: UIButton!{
         didSet{
-            rollButton.setImage(UIImage(named:"dice_off"),for :.highlighted)
-            rollButton.setImage(UIImage(named:"dice_off"),for :.disabled)
+            rollButton.setBackgroundImage(UIImage(named:"dice_off"),for :.highlighted)
+            rollButton.setBackgroundImage(UIImage(named:"dice_off"),for :.disabled)
         }
     }
     @IBOutlet weak var playButton: UIButton!{
@@ -179,6 +179,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
+        
+        // 檢查是否有按鈕被選擇
+        let isAnyButtonSelected = isPlayerOne() ? playerOneData.isPlayerScoreBtnSelected.contains(.isSelected) : playerTwoData.isPlayerScoreBtnSelected.contains(.isSelected)
+
+        if !isAnyButtonSelected {
+            // 如果沒有按鈕被選擇，顯示提示
+            showAlert(message: "每回合，每個使用者都一定要選擇一個按鈕哦！")
+            return
+        }
         
         setBtnSelected()
         // 增加回合數
@@ -596,6 +605,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             alert.dismiss(animated: true)
         }
     }
+    
+    
+    // 顯示提示框的方法
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -613,6 +631,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         //左邊表格
         if tableView == leftTableView {
+            
+            // 根據奇偶性設置按鈕背景
+            let buttonImageName = indexPath.row % 2 == 0 ? "square_white" : "square_yellow"
+            
+            cell.playerOneScroeButton.setImage(UIImage(named: buttonImageName), for: .normal)
+            cell.playerTwoScroeButton.setImage(UIImage(named: buttonImageName), for: .normal)
             
             //如果是表格第六行
             if indexPath.row == 6
@@ -669,6 +693,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
         //表格右邊
         else if tableView == rightTableView{
+            
+            // 根據奇偶性設置按鈕背景
+            let buttonImageName = indexPath.row % 2 == 0 ? "square_white" : "square_yellow"
+            
+            cell.playerOneScroeButton.setImage(UIImage(named: buttonImageName), for: .normal)
+            cell.playerTwoScroeButton.setImage(UIImage(named: buttonImageName), for: .normal)
             
             cell.setupCell(row: indexPath.row,
                            .right,
