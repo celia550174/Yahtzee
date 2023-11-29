@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OXU-cn-Q0j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRG-ML-K4B">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="width" constant="32" id="cdR-0Q-khe"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="volume_on"/>
+                                <state key="normal" image="volume_off"/>
                                 <connections>
                                     <action selector="volumeBtnPressed:" destination="Rk6-zK-Im3" eventType="touchUpInside" id="w8P-46-ndd"/>
                                 </connections>
@@ -1027,7 +1027,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BCf-XW-DIZ"/>
+        <segue reference="upW-hT-hK5"/>
         <segue reference="mwK-OE-AbR"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1059,7 +1059,7 @@
         <image name="previous page_on" width="880" height="272"/>
         <image name="single_on" width="880" height="272"/>
         <image name="start game_on" width="880" height="272"/>
-        <image name="volume_on" width="82" height="80"/>
+        <image name="volume_off" width="76" height="80"/>
         <image name="white_1" width="143" height="143"/>
         <image name="white_2" width="143.5" height="143"/>
         <image name="white_3" width="143.5" height="143"/>

@@ -70,6 +70,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBOutlet weak var rollButton: UIButton!{
         didSet{
             rollButton.setImage(UIImage(named:"dice_off"),for :.highlighted)
+            rollButton.setImage(UIImage(named:"dice_off"),for :.disabled)
         }
     }
     @IBOutlet weak var playButton: UIButton!{
@@ -79,7 +80,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     @IBOutlet weak var volumeBtn: UIButton!{
         didSet{
-            volumeBtn.setImage(UIImage(named:"volume_off"),for :.selected)
+            volumeBtn.setImage(UIImage(named:"volume_on"),for :.selected)
         }
     }
     @IBOutlet weak var backBtn: UIButton!{
@@ -123,17 +124,31 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     //音量鍵
     @IBAction func volumeBtnPressed(_ sender: Any) {
         self.volumeBtn.isSelected = !self.volumeBtn.isSelected
-        if audioPlayer != nil && !audioPlayer.isPlaying
-        {
-            //開始播放
-            audioPlayer.play()
-            
-        }
-        else
-        {
-            //暫停播放
-            audioPlayer.pause()
-        }
+        if let audioPlayer = ViewController.audioPlayer {
+                    if audioPlayer.isPlaying {
+                        // 如果正在播放，則暫停播放
+                        audioPlayer.pause()
+                    } else {
+                        // 如果暫停或停止，則開始播放
+                        audioPlayer.play()
+                    }
+                }
+//        if audioPlayer != nil /*&& !audioPlayer.isPlaying*/
+//        {
+//            if audioPlayer.isPlaying {
+//                            // 如果正在播放，則暫停播放
+//                            audioPlayer.pause()
+//                        } else {
+//                            // 如果暫停或停止，則開始播放
+//                            audioPlayer.play()
+//                        }
+//            
+//        }
+////        else
+////        {
+////            //暫停播放
+////            audioPlayer.pause()
+////        }
     }
     
     @IBAction func rollButtonPressed(_ sender: UIButton)
@@ -233,7 +248,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     var shouldHideButton: Bool = false
     
     //宣告音樂播放器
-    var audioPlayer:AVAudioPlayer!
+    static var audioPlayer: AVAudioPlayer!
+    // 追蹤音樂播放狀態，true 表示正在播放，false 表示暫停或停止
+    var isMusicPlaying = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -249,22 +266,37 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         
         //背景音樂相關設定
         let urlFile = Bundle.main.url(forResource: "music/cheerful_whistling", withExtension: "mp3")!
-        do
-        {
-            audioPlayer = try AVAudioPlayer(contentsOf: urlFile)
+        if ViewController.audioPlayer == nil {
+            do {
+                ViewController.audioPlayer = try AVAudioPlayer(contentsOf: urlFile)
+            } catch {
+                print("音樂檔案載入錯誤：\(error)")
+                return
+            }
+            
+            // 指派音樂播放器的代理人
+            ViewController.audioPlayer.delegate = self
+            // 準備播放音樂
+            ViewController.audioPlayer.prepareToPlay()
+            // 設定循環播放
+            ViewController.audioPlayer.numberOfLoops = -1
+            // 開始播放音樂
+            ViewController.audioPlayer.play()
         }
-        catch
-        {
-            print("音樂檔案載入錯誤：\(error)")
-            return
-        }
-        //指派音樂播放器的代理人
-        self.audioPlayer.delegate = self
-        //準備播放音樂
-        self.audioPlayer.prepareToPlay()
-        // 設定循環播放
-        self.audioPlayer.numberOfLoops = -1
         
+    }
+    
+    // AVAudioPlayerDelegate 方法，當音樂播放完成時觸發
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if isMusicPlaying {
+            // 如果音樂正在播放，重新開始播放
+            player.play()
+        }
+    }
+    
+    // 在 deinit 中停止音樂播放
+    deinit {
+        ViewController.audioPlayer.stop()
     }
     
     // 當遊戲結束時換頁
@@ -336,9 +368,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             playerTwoLbl.textColor = orCustomColor
             leftScoreLabel.textColor = gCustomColor
             rightScoreLabel.textColor = orCustomColor
-            playerOneImg.image = UIImage(named: "X\(playerOneSelectedMonster!)")
-            playerTwoImg.image = UIImage(named: "O\(playerTwoSelectedMonster!)")
-            print("X\(playerTwoSelectedMonster!)")
+            playerOneImg.image = UIImage(named: "X\(playerOneSelectedMonster ?? "萬事通")")
+            playerTwoImg.image = UIImage(named: "O\(playerTwoSelectedMonster ?? "萬事通")")
         }
         else
         {
@@ -350,9 +381,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             playerTwoLbl.textColor = gCustomColor
             leftScoreLabel.textColor = orCustomColor
             rightScoreLabel.textColor = gCustomColor
-            playerOneImg.image = UIImage(named: "O\(playerOneSelectedMonster!)")
-            playerTwoImg.image = UIImage(named: "X\(playerTwoSelectedMonster!)")
-            print("O\(playerTwoSelectedMonster!)")
+            playerOneImg.image = UIImage(named: "O\(playerOneSelectedMonster ?? "萬事通")")
+            playerTwoImg.image = UIImage(named: "X\(playerTwoSelectedMonster ?? "萬事通")")
         }
     }
     
