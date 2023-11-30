@@ -80,7 +80,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     @IBOutlet weak var volumeBtn: UIButton!{
         didSet{
-            volumeBtn.setImage(UIImage(named:"volume_on"),for :.selected)
+            volumeBtn.setImage(UIImage(named:"volume_off"),for :.selected)
         }
     }
     @IBOutlet weak var backBtn: UIButton!{
@@ -185,7 +185,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
 
         if !isAnyButtonSelected {
             // 如果沒有按鈕被選擇，顯示提示
-            showAlert(message: "每回合，每個使用者都一定要選擇一個按鈕哦！")
+            showAlert(message: "每個回合都一定要選擇一個喜歡的分數按鈕哦！")
             return
         }
         
@@ -639,13 +639,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             cell.playerTwoScroeButton.setImage(UIImage(named: buttonImageName), for: .normal)
             
             //如果是表格第六行
-            if indexPath.row == 6
-            {
+            if indexPath.row == 6 {
                 let customCell = tableView.dequeueReusableCell(withIdentifier: BounsTableViewCell.identifier) as! BounsTableViewCell
-                customCell.configure1(String(playerOneData.bonus))
-                customCell.configure2(String(playerTwoData.bonus))
+                customCell.setBonusScores(playerOneBonus: playerOneData.bonus, playerTwoBonus: playerTwoData.bonus)
                 return customCell
             }
+
             else
             {
                 cell.setupCell(row: indexPath.row,

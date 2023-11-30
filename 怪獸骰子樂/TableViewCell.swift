@@ -22,7 +22,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var playerTwoScroeButton: UIButton!{
         didSet {
             // 在 didSet 裡設定圖片
-            playerTwoScroeButton.setImage(UIImage(named: "square_yellow"), for: .normal)
+//            playerTwoScroeButton.setImage(UIImage(named: "square_yellow"), for: .normal)
             playerTwoScroeButton.setImage(UIImage(named: "square_gray"), for: .selected)
         }
     }
@@ -82,7 +82,7 @@ class TableViewCell: UITableViewCell {
             self.playerOneScroeButton.layer.borderWidth = 1.0
             self.playerOneScroeButton.layer.borderColor = UIColor.gray.cgColor
             //改變外框圓角
-            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
+//            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
             
             //選取玩家二表格
             self.playerTwoScroeButton.clipsToBounds = true
@@ -90,7 +90,7 @@ class TableViewCell: UITableViewCell {
             self.playerTwoScroeButton.layer.borderWidth = 3.5
             //在這邊改變框框顏色
             self.playerTwoScroeButton.layer.borderColor = customColor.cgColor
-            self.playerTwoScroeButton.layer.cornerRadius = 0
+//            self.playerTwoScroeButton.layer.cornerRadius = 0
         }
         else
         {
@@ -100,7 +100,7 @@ class TableViewCell: UITableViewCell {
             //框線粗細
             self.playerOneScroeButton.layer.borderWidth = 3.5
             self.playerOneScroeButton.layer.borderColor = customColor.cgColor
-            self.playerOneScroeButton.layer.cornerRadius = 0
+//            self.playerOneScroeButton.layer.cornerRadius = 0
             
             self.playerTwoScroeButton.clipsToBounds = true
             self.playerTwoScroeButton.contentMode = .scaleAspectFill
@@ -108,7 +108,7 @@ class TableViewCell: UITableViewCell {
             //在這邊改變框框顏色
             self.playerTwoScroeButton.layer.borderColor = UIColor.gray.cgColor
             //改變外框圓角
-            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
+//            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
         }
     }
     

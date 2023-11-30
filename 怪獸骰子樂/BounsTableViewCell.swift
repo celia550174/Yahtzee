@@ -27,6 +27,11 @@ class BounsTableViewCell: UITableViewCell {
         self.playerTwoBounsScroesLabel.text = title
     }
     
+    func setBonusScores(playerOneBonus: Int, playerTwoBonus: Int) {
+            configure1(String(playerOneBonus))
+            configure2(String(playerTwoBonus))
+        }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

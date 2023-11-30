@@ -112,7 +112,8 @@ struct PlayerScoreSheet
     }
     
     private func getBonus() -> Int{
-        return ((one + two + three + four + five + sixe) >= 63) ? 35 : 0
+//        return ((one + two + three + four + five + sixe) >= 63) ? 35 : 0
+        ((playerScore[0] + playerScore[1] + playerScore[2] + playerScore[3] + playerScore[4] + playerScore[5]) >= 63) ? 35 : 0
     }
     
     private func getThreeOfAKind(_ diceRoll: [DiceValue]) -> Int{

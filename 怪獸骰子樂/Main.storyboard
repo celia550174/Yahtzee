@@ -28,7 +28,7 @@
                                 <connections>
                                     <action selector="backBtn:" destination="Rk6-zK-Im3" eventType="touchUpInside" id="x9p-Dm-vU9"/>
                                     <action selector="backBtnTouchDown:" destination="Rk6-zK-Im3" eventType="touchDown" id="Ac0-w5-rhw"/>
-                                    <segue destination="ENC-xE-O97" kind="show" id="upW-hT-hK5"/>
+                                    <segue destination="OXU-cn-Q0j" kind="show" id="rW1-gF-kpA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVX-qf-rk1" userLabel="Volume Button">
@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="width" constant="32" id="cdR-0Q-khe"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="volume_off"/>
+                                <state key="normal" image="volume_on"/>
                                 <connections>
                                     <action selector="volumeBtnPressed:" destination="Rk6-zK-Im3" eventType="touchUpInside" id="w8P-46-ndd"/>
                                 </connections>
@@ -1027,7 +1027,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="upW-hT-hK5"/>
+        <segue reference="rW1-gF-kpA"/>
+        <segue reference="Q1f-Ed-Exn"/>
         <segue reference="mwK-OE-AbR"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1059,7 +1060,7 @@
         <image name="previous page_on" width="880" height="272"/>
         <image name="single_on" width="880" height="272"/>
         <image name="start game_on" width="880" height="272"/>
-        <image name="volume_off" width="76" height="80"/>
+        <image name="volume_on" width="82" height="80"/>
         <image name="white_1" width="143" height="143"/>
         <image name="white_2" width="143.5" height="143"/>
         <image name="white_3" width="143.5" height="143"/>
