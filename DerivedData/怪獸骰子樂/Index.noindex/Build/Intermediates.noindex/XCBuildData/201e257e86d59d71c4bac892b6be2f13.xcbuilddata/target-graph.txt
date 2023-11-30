@@ -1,0 +1,3 @@
+Target dependency graph (2 targets)
+Target '怪獸骰子樂' in project '怪獸骰子樂' (no dependencies)
+Target '怪獸骰子樂' in project '怪獸骰子樂' (no dependencies)

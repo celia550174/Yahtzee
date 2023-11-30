@@ -1,0 +1,58 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "95cead4c59d45789707ba34f84ad11bfe47a3f279440b31dc4c7adde4f178b46"
+    }
+  ],
+  "containerPath" : "/Users/celia/Desktop/Yahtzee/怪獸骰子樂.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator17.0",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/celia/Desktop/Yahtzee/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Build/Products",
+      "pchPath" : "/Users/celia/Desktop/Yahtzee/DerivedData/怪獸骰子樂/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
