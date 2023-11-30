@@ -54,8 +54,8 @@ struct PlayerScoreSheet
     var fullHouse = 0      //葫蘆+25
     var smStraight = 0     //小順+30
     var lgStraight = 0     //大順+40
-    var chance = 0         //機會
     var fiveOfAKind = 0    //五條+50//YAHTZEE
+    var chance = 0         //機會
     
 
     init(_ diceRoll: [DiceValue])
@@ -94,10 +94,17 @@ struct PlayerScoreSheet
         
         // 大順
         lgStraight = getLgStraight(diceRoll)
-
         
         // 计算骰子总和
         chance = getChance(diceRoll)
+        
+        // 如果已經計分過五條，則每次再擲出一個 Yahtzee 另外加 100 分
+        if isPlayerScoreBtnSelected[11] == .done {
+            let uniqueNumbers = Set(diceRoll)
+            // 检查是否存在 5 个相同的骰子
+            if (uniqueNumbers.count == 1 && diceRoll.count == 5){(playerScore[12] += 100)}
+            
+        }
 
         // 发送通知，通知视图需要更新
         NotificationCenter.default.post(name: .scoresUpdated, object: nil)
@@ -112,7 +119,6 @@ struct PlayerScoreSheet
     }
     
     private func getBonus() -> Int{
-//        return ((one + two + three + four + five + sixe) >= 63) ? 35 : 0
         ((playerScore[0] + playerScore[1] + playerScore[2] + playerScore[3] + playerScore[4] + playerScore[5]) >= 63) ? 35 : 0
     }
     
@@ -133,7 +139,7 @@ struct PlayerScoreSheet
         
         return (maxCount >= 4) ? total : 0
     }
-    
+    //五條被選定後又擲出五條需要再加分
     private func getFiveOfAKind(_ diceRoll: [DiceValue]) -> Int{
         // 将重复的数字用集合 Set 去掉
         let uniqueNumbers = Set(diceRoll)
@@ -145,35 +151,32 @@ struct PlayerScoreSheet
         let sortedCounts = getSortedCounts(diceRoll)
         return (sortedCounts == [3, 2]) ? 25 : 0
     }
-    //提醒自己！！小順的方法還需要調整，目前還有問題，[12356]也被算分了
-    private func getSmStraight(_ diceRoll: [DiceValue]) -> Int{
-        // 将重复的数字用集合 Set 去掉
+
+    private func getSmStraight(_ diceRoll: [DiceValue]) -> Int {
+        // 轉成 set 去除重複的數字
         let uniqueNumbers = Set(diceRoll)
         // 轉回陣列
         let sortedNumbers = Array(uniqueNumbers)
+        // 將點數排序
         let sortedRoll = sortedNumbers.map { $0.rawValue }.sorted()
-        var isConsecutive = false
-            if sortedRoll.count >= 4 {
-                for i in 1..<sortedRoll.count {
-                    if sortedRoll[i] == sortedRoll[i - 1] + 1 {
-                        isConsecutive = true
-                    } else {
-                        var smStraightArray = sortedRoll
-                        smStraightArray.remove(at: i)
-                        if smStraightArray.count == 4{
-                            isConsecutive = true
-                            break
-                        }
-                        else
-                        {
-                            isConsecutive = false
-                            break
-                        }
-                    }
-                }
-            }
-        return isConsecutive ? 30 : 0
+        
+        print(sortedRoll)
+        
+        // 定義小順的可能組合
+        let possibleSmStraights: [Set<Int>] = [
+            [1, 2, 3, 4],
+            [2, 3, 4, 5],
+            [3, 4, 5, 6]
+        ].map { Set($0) }
+
+        // 檢查點數是否構成小順的其中一個組合
+        if possibleSmStraights.contains { $0.isSubset(of: Set(sortedRoll)) } {
+            return 30
+        } else {
+            return 0
+        }
     }
+
     
     private func getLgStraight(_ diceRoll: [DiceValue]) -> Int{
         let isLgStraight = diceRoll.map({ $0.rawValue }).sorted() == [2, 3, 4, 5, 6] || diceRoll.map({ $0.rawValue }).sorted() == [1, 2, 3, 4, 5]

@@ -958,7 +958,7 @@
                                         <connections>
                                             <action selector="againTouchDown:" destination="Oz9-iZ-QM6" eventType="touchDown" id="VPo-mT-eWt"/>
                                             <action selector="againTouchUp:" destination="Oz9-iZ-QM6" eventType="touchUpInside" id="BCI-Yk-JvE"/>
-                                            <segue destination="ENC-xE-O97" kind="show" id="cwa-hK-XMX"/>
+                                            <segue destination="OXU-cn-Q0j" kind="show" id="fJT-je-YT9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2q-CK-6Ur">
@@ -1027,7 +1027,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rW1-gF-kpA"/>
+        <segue reference="fJT-je-YT9"/>
         <segue reference="Q1f-Ed-Exn"/>
         <segue reference="mwK-OE-AbR"/>
     </inferredMetricsTieBreakers>
