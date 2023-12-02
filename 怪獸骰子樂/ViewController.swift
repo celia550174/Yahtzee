@@ -80,9 +80,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     @IBOutlet weak var volumeBtn: UIButton!{
         didSet{
-            volumeBtn.setImage(UIImage(named:"volume_off"),for :.selected)
-        }
+            volumeBtn.setImage(UIImage(named:"volume_on"),for :.selected)
+            volumeBtn.setImage(UIImage(named:"volume_off"),for :.normal)
+                // 檢查音樂播放器是否存在並正在播放
+                if let audioPlayer = ViewController.audioPlayer, audioPlayer.isPlaying {
+                    volumeBtn.isSelected = true  // 音樂正在播放，將狀態設為 true
+                } else {
+                    volumeBtn.isSelected = false  // 音樂未播放或已暫停，將狀態設為 false
+                }
+            }
     }
+
     @IBOutlet weak var backBtn: UIButton!{
         didSet{
             backBtn.setImage(UIImage(named:"back_off"),for :.highlighted)
@@ -122,18 +130,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     
     //音量鍵
+    // 音量鍵
     @IBAction func volumeBtnPressed(_ sender: Any) {
-        self.volumeBtn.isSelected = !self.volumeBtn.isSelected
         if let audioPlayer = ViewController.audioPlayer {
             if audioPlayer.isPlaying {
                 // 如果正在播放，則暫停播放
                 audioPlayer.pause()
+                volumeBtn.isSelected = false  // 設定為 false 表示音樂已暫停
             } else {
                 // 如果暫停或停止，則開始播放
                 audioPlayer.play()
+                volumeBtn.isSelected = true  // 設定為 true 表示音樂正在播放
             }
         }
     }
+
     
     @IBAction func rollButtonPressed(_ sender: UIButton)
     {
@@ -260,8 +271,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     
     //宣告音樂播放器
     static var audioPlayer: AVAudioPlayer!
-    // 追蹤音樂播放狀態，true 表示正在播放，false 表示暫停或停止
-    var isMusicPlaying = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -296,17 +305,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             ViewController.audioPlayer.numberOfLoops = -1
             // 開始播放音樂
             ViewController.audioPlayer.play()
+            //預設為開啟音樂
+            volumeBtn.isSelected = true
         }
         
     }
     
     // AVAudioPlayerDelegate 方法，當音樂播放完成時觸發
-//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-//        if isMusicPlaying {
-//            // 如果音樂正在播放，重新開始播放
-//            player.play()
-//        }
-//    }
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if volumeBtn.isSelected {
+            // 如果音樂正在播放且 volumeBtn 是選中的狀態，重新開始播放
+            player.play()
+        }
+    }
+
     
     // 在 deinit 中停止音樂播放
     deinit {
