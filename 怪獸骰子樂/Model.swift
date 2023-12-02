@@ -98,13 +98,7 @@ struct PlayerScoreSheet
         // 计算骰子总和
         chance = getChance(diceRoll)
         
-        // 如果已經計分過五條，則每次再擲出一個 Yahtzee 另外加 100 分
-        if isPlayerScoreBtnSelected[11] == .done {
-            let uniqueNumbers = Set(diceRoll)
-            // 检查是否存在 5 个相同的骰子
-            if (uniqueNumbers.count == 1 && diceRoll.count == 5){(playerScore[12] += 100)}
-            
-        }
+        
 
         // 发送通知，通知视图需要更新
         NotificationCenter.default.post(name: .scoresUpdated, object: nil)
@@ -140,7 +134,15 @@ struct PlayerScoreSheet
         return (maxCount >= 4) ? total : 0
     }
     //五條被選定後又擲出五條需要再加分
-    private func getFiveOfAKind(_ diceRoll: [DiceValue]) -> Int{
+    private mutating func getFiveOfAKind(_ diceRoll: [DiceValue]) -> Int{
+        
+        // 如果已經計分過五條，則每次再擲出一個 Yahtzee 另外加 100 分
+        if isPlayerScoreBtnSelected[11] == .done {
+            let uniqueNumbers = Set(diceRoll)
+            // 检查是否存在 5 个相同的骰子
+            if (uniqueNumbers.count == 1 && diceRoll.count == 5){(playerScore[12] += 100)}
+            
+        }
         // 将重复的数字用集合 Set 去掉
         let uniqueNumbers = Set(diceRoll)
         // 检查是否存在 5 个相同的骰子
@@ -159,8 +161,6 @@ struct PlayerScoreSheet
         let sortedNumbers = Array(uniqueNumbers)
         // 將點數排序
         let sortedRoll = sortedNumbers.map { $0.rawValue }.sorted()
-        
-        print(sortedRoll)
         
         // 定義小順的可能組合
         let possibleSmStraights: [Set<Int>] = [

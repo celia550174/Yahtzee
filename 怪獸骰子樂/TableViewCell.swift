@@ -15,14 +15,12 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var playerOneScroeButton: UIButton!{
         didSet {
             // 在 didSet 裡設定圖片
-            playerOneScroeButton.setImage(UIImage(named: "square_yellow"), for: .normal)
             playerOneScroeButton.setImage(UIImage(named: "square_gray"), for: .selected)
         }
     }
     @IBOutlet weak var playerTwoScroeButton: UIButton!{
         didSet {
             // 在 didSet 裡設定圖片
-//            playerTwoScroeButton.setImage(UIImage(named: "square_yellow"), for: .normal)
             playerTwoScroeButton.setImage(UIImage(named: "square_gray"), for: .selected)
         }
     }
@@ -65,7 +63,7 @@ class TableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+       
     }
     
     func configure(withValue value: Int) {
@@ -81,8 +79,7 @@ class TableViewCell: UITableViewCell {
             //框線粗細
             self.playerOneScroeButton.layer.borderWidth = 1.0
             self.playerOneScroeButton.layer.borderColor = UIColor.gray.cgColor
-            //改變外框圓角
-//            self.playerOneScroeButton.layer.cornerRadius = self.playerOneScroeButton.bounds.width / 12
+            
             
             //選取玩家二表格
             self.playerTwoScroeButton.clipsToBounds = true
@@ -107,8 +104,7 @@ class TableViewCell: UITableViewCell {
             self.playerTwoScroeButton.layer.borderWidth = 1.0
             //在這邊改變框框顏色
             self.playerTwoScroeButton.layer.borderColor = UIColor.gray.cgColor
-            //改變外框圓角
-//            self.playerTwoScroeButton.layer.cornerRadius = self.playerTwoScroeButton.bounds.width / 12
+            
         }
     }
     

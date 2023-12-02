@@ -138,6 +138,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     @IBAction func rollButtonPressed(_ sender: UIButton)
     {
         stratDiceRoll()
+        
         //先檢查 rollCount 變數，確保玩家還有剩餘的擲骰子次數。
         if game.rollCount > 0
         {
@@ -189,9 +190,11 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
             return
         }
         
+        //把選取的按鈕改成done
         setBtnSelected()
         // 增加回合數
         currentRound += 1
+        //移動玩家指示箭頭
         changeArrow(currentRound)
         
         // 通知更新表格視圖
@@ -207,6 +210,24 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         game.rollCount = 3
         let buttonText = "             \(game.rollCount)/3"
         rollButton.setTitle(buttonText, for: .normal)
+        
+        //因為bonus不能按，所以有符合加分條件就自動先加到分數陣列
+        if playerOneData.bonus == 35
+        {
+            playerOneData.playerScore[6] = 35
+        }
+        else 
+        {
+            playerOneData.playerScore[6] = 0
+        }
+        if playerTwoData.bonus == 35
+        {
+            playerTwoData.playerScore[6] = 35
+        }
+        else
+        {
+            playerTwoData.playerScore[6] = 0
+        }
 
         
         //分數更新
@@ -233,11 +254,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     //記錄骰子點數的陣列
     var diceScore = [0, 0, 0, 0, 0]
     
-    
+    //記錄當前選擇的按鈕，在分數陣列的位置
     var leftTableBtnCurrentSelectIndex: Int?
     var rightTableBtnCurrentSelectIndex: Int?
-    
-    var shouldHideButton: Bool = false
     
     //宣告音樂播放器
     static var audioPlayer: AVAudioPlayer!
@@ -255,6 +274,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
         //預設箭頭
         leftTwoArrowImg.isHidden = true
         rightTwoArrowImg.isHidden = true
+        
+        //一開始先隱藏骰子
+        resetDiceAppearance()
         
         //背景音樂相關設定
         let urlFile = Bundle.main.url(forResource: "music/cheerful_whistling", withExtension: "mp3")!
@@ -279,12 +301,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate{
     }
     
     // AVAudioPlayerDelegate 方法，當音樂播放完成時觸發
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        if isMusicPlaying {
-            // 如果音樂正在播放，重新開始播放
-            player.play()
-        }
-    }
+//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+//        if isMusicPlaying {
+//            // 如果音樂正在播放，重新開始播放
+//            player.play()
+//        }
+//    }
     
     // 在 deinit 中停止音樂播放
     deinit {
@@ -652,6 +674,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                                playerOneData,
                                playerTwoData)
                 cell.playerOneScroeButtonClosure = {
+                    // 檢查是否已經進行了第一次擲骰子
+                    guard self.game.rollCount < 3 else {
+                       // 若尚未進行第一次擲骰子，彈出警告視窗提醒玩家
+                        self.showAlert(message: "請先進行第一次擲骰子")
+                       return
+                   }
                     // 點擊cell按鈕後要做的事
                     if !self.isPlayerOne(){
                         self.showToast(2)
@@ -671,6 +699,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 }
                 
                 cell.playerTwoScroeButtonClosure = {
+                    guard self.game.rollCount < 3 else {
+                       // 若尚未進行第一次擲骰子，彈出警告視窗提醒玩家
+                        self.showAlert(message: "請先進行第一次擲骰子")
+                       return
+                   }
                     // 點擊cell按鈕後要做的事
                     if self.isPlayerOne(){
                         self.showToast(1)
@@ -704,6 +737,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                            playerOneData,
                            playerTwoData)
             cell.playerOneScroeButtonClosure = {
+                guard self.game.rollCount < 3 else {
+                   // 若尚未進行第一次擲骰子，彈出警告視窗提醒玩家
+                    self.showAlert(message: "請先進行第一次擲骰子")
+                   return
+               }
                 // 點擊cell按鈕後要做的事
                 if !self.isPlayerOne(){
                     self.showToast(2)
@@ -722,6 +760,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 //                self.playerOneData.rightPlayerScoreBtnSelectIndex = indexPath.row
             }
             cell.playerTwoScroeButtonClosure = {
+                guard self.game.rollCount < 3 else {
+                   // 若尚未進行第一次擲骰子，彈出警告視窗提醒玩家
+                    self.showAlert(message: "請先進行第一次擲骰子")
+                   return
+               }
                 // 點擊cell按鈕後要做的事
                 if self.isPlayerOne(){
                     self.showToast(1)
