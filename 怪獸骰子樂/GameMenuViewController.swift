@@ -6,6 +6,8 @@ class GameMenuViewController: UIViewController {
     //按鈕位置
     @IBOutlet weak var singleGame: UIButton!{
         didSet{
+            singleGame.isHidden = true
+            //未完成，暫不起用
             singleGame.setImage(UIImage(named: "single_off"), for: .highlighted)
         }
     }
@@ -18,6 +20,7 @@ class GameMenuViewController: UIViewController {
     
     //按鈕啟動
     @IBAction func singleGameTouchup(_ sender: UIButton) {
+        
     }
     @IBAction func doubleGameTouchup(_ sender: UIButton) {
     }
@@ -25,6 +28,7 @@ class GameMenuViewController: UIViewController {
     
     //按鈕按下
     @IBAction func singleGameTouchDown(_ sender: UIButton) {
+        
     }
     @IBAction func doubleGameTouchDown(_ sender: UIButton) {        
     }
